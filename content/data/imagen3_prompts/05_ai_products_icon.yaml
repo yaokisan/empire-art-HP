@@ -1,0 +1,45 @@
+# Imagen3 画像生成要件: AI Productsアイコン
+
+title: "AI Products 事業アイコン"
+purpose: "AI SaaS事業を表現するアイコン"
+
+requirements:
+  concept: |
+    人工知能による生産性革新と自動化を表現。
+    ニューラルネットワークや知能的なパターンを使用して、
+    次世代の働き方を可能にするAIプロダクトを視覚化。
+
+  style:
+    - シンプルなラインアート
+    - 未来的だが親しみやすいデザイン
+    - 知的で洗練された印象
+    - テクニカルかつエレガント
+
+  color_scheme:
+    primary: "ネイビー (#1e2241) の単色"
+    background: "透明（PNG）"
+    line_weight: "均一で適度な太さ"
+    overall: "モノクロームで統一"
+
+  visual_elements:
+    - 簡略化されたニューラルネットワーク
+    - 接続されたノードとパス
+    - 六角形やドットのパターン
+    - 知能を示唆する幾何学的構造
+
+  avoid:
+    - ロボットや人型AI
+    - 脳のリアルな描写
+    - SF的すぎる表現
+    - 威圧的な印象
+
+prompt_for_imagen3: |
+  Minimalist line art icon design,
+  abstract neural network with connected nodes,
+  single navy blue color (#1e2241) on transparent background,
+  hexagonal pattern suggesting AI intelligence structure,
+  clean geometric design with dots and connecting lines,
+  modern interpretation of artificial intelligence,
+  approachable yet sophisticated tech aesthetic,
+  uniform line weight, perfectly balanced composition,
+  aspect ratio 1:1

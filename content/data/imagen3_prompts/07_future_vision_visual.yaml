@@ -1,0 +1,45 @@
+# Imagen3 画像生成要件: 将来ビジョンビジュアル
+
+title: "Empire構築ビジョンの表現"
+purpose: "壮大な将来ビジョンを洗練された形で表現"
+
+requirements:
+  concept: |
+    「Empire（帝国）を築く」という壮大なビジョンを、
+    押し付けがましくなく、洗練された形で表現。
+    デジタル変革による新しい価値創造の世界を示唆。
+
+  style:
+    - 未来的かつタイムレス
+    - 壮大さと謙虚さのバランス
+    - 抽象的で示唆的
+    - 高品質でプレミアム
+
+  color_scheme:
+    primary: "ネイビー (#1e2241) のグラデーション"
+    secondary: "深い青から明るい青への推移"
+    accent: "地平線に向かう微かな光"
+    overall: "夜明け前の静寂な雰囲気"
+
+  visual_elements:
+    - デジタルな地平線
+    - 上昇する幾何学的構造
+    - 拡張を示唆するグリッドパターン
+    - 無限の可能性を感じさせる奥行き
+
+  avoid:
+    - 具体的な建築物や都市
+    - 派手すぎる未来都市
+    - 帝国主義的なイメージ
+    - テクノロジーの具体的描写
+
+prompt_for_imagen3: |
+  Abstract futuristic horizon landscape,
+  navy blue gradient (#1e2241) from dark to lighter tones,
+  minimal geometric structures rising from digital grid,
+  subtle perspective lines converging to distant vanishing point,
+  ethereal light on horizon suggesting dawn of new era,
+  sophisticated representation of digital empire building,
+  clean minimalist aesthetic with sense of vast potential,
+  premium quality, subtle and refined,
+  aspect ratio 16:9

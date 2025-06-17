@@ -1,0 +1,45 @@
+# Imagen3 画像生成要件: 理念ビジュアル
+
+title: "すごいものを作って、ビックリさせる - 理念表現"
+purpose: "企業理念セクションで使用するビジュアル"
+
+requirements:
+  concept: |
+    「すごいものを作って、ビックリさせる」というミッションを
+    創造的な爆発やブレイクスルーのメタファーで表現。
+    予想を超える驚きと、洗練された創造性の両立。
+
+  style:
+    - ミニマルながらダイナミックな構成
+    - エレガントな驚きの表現
+    - 抽象的でアーティスティック
+    - プロフェッショナルな品質
+
+  color_scheme:
+    primary: "白背景または透明感のある背景"
+    secondary: "ネイビー (#1e2241) のアクセント"
+    accent: "控えめな光の表現"
+    overall: "明るく開放的なトーン"
+
+  visual_elements:
+    - 中心から外側への爆発的な展開
+    - 有機的な曲線と幾何学的な直線の融合
+    - 創造性を示唆する流動的な形状
+    - ブレイクスルーを表現する突破感
+
+  avoid:
+    - 具体的な製品や物体
+    - 暗すぎる雰囲気
+    - 混沌とした複雑さ
+    - 子供っぽい表現
+
+prompt_for_imagen3: |
+  Abstract minimalist art showing creative breakthrough,
+  white clean background with navy blue (#1e2241) accent elements,
+  elegant explosion of geometric and organic shapes from center,
+  suggesting innovation and surprise in sophisticated way,
+  flowing lines merging with sharp angles,
+  professional artistic expression of "wow factor",
+  minimal color palette, premium quality,
+  suitable for tech company philosophy section,
+  aspect ratio 3:2

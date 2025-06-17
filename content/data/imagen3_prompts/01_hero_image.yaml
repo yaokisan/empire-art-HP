@@ -1,0 +1,45 @@
+# Imagen3 画像生成要件: ヒーローセクション背景
+
+title: "Empire Art ヒーロー背景画像"
+purpose: "HPのファーストビューで使用する背景画像"
+
+requirements:
+  concept: |
+    「1人が100人分の価値を生む世界」を抽象的に表現する。
+    一つの中心点から広がる波紋や、幾何学的なパターンの増幅を通じて、
+    少数精鋭による指数関数的な生産性向上を視覚化する。
+
+  style:
+    - ミニマリスティックなデザイン
+    - 高級感のある洗練された表現
+    - テクノロジーとアートの融合
+    - 抽象的でプロフェッショナル
+
+  color_scheme:
+    primary: "ネイビーブルー (#1e2241)"
+    secondary: "ダークブルーのグラデーション"
+    accent: "かすかな光の要素（白または淡い青）"
+    overall: "全体的に暗めのトーンで統一"
+
+  visual_elements:
+    - 中心から広がる幾何学的パターン
+    - デジタル的な波紋効果
+    - 微細なグリッドやドットパターン
+    - 増幅・拡散を表現する要素
+
+  avoid:
+    - 具体的な人物の描写
+    - リアルな風景
+    - 過度にカラフルな色使い
+    - 複雑すぎるディテール
+
+prompt_for_imagen3: |
+  Abstract minimalist digital art background,
+  navy blue (#1e2241) dominant color palette with subtle gradients,
+  geometric patterns radiating from center point suggesting exponential growth,
+  ripple effect in digital style representing one person creating massive impact,
+  clean premium aesthetic with subtle tech grid elements in background,
+  dark sophisticated tone, minimal use of light accents,
+  professional corporate website hero background,
+  high quality, ultra clean design,
+  aspect ratio 16:9

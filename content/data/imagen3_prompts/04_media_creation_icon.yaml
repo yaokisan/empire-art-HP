@@ -1,0 +1,45 @@
+# Imagen3 画像生成要件: Media Creationアイコン
+
+title: "Media Creation 事業アイコン"
+purpose: "メディア制作事業（BEAUTY ROAD等）を表現するアイコン"
+
+requirements:
+  concept: |
+    映像制作、ストーリーテリング、メディアコンテンツの創造を表現。
+    再生ボタンやフィルムの要素を、クリエイティブな形で再解釈し、
+    業界を変革するメディアの力を視覚化。
+
+  style:
+    - シンプルなラインアート
+    - エレガントで洗練されたデザイン
+    - 動きを感じさせる構成
+    - モダンでタイムレス
+
+  color_scheme:
+    primary: "ネイビー (#1e2241) の単色"
+    background: "透明（PNG）"
+    line_weight: "均一で適度な太さ"
+    overall: "モノクロームで統一"
+
+  visual_elements:
+    - 抽象化された再生ボタン
+    - 流れるような曲線でストーリーを表現
+    - 放射状に広がる影響力の表現
+    - メディアの波及効果を示唆する要素
+
+  avoid:
+    - 古典的なフィルムリール
+    - テレビやカメラの具体的な形
+    - 複雑な装飾
+    - YouTubeなど特定プラットフォームの連想
+
+prompt_for_imagen3: |
+  Minimalist line art icon design,
+  abstract play button merged with flowing creative waves,
+  single navy blue color (#1e2241) on transparent background,
+  elegant curves suggesting storytelling and content flow,
+  radiating lines showing media impact and reach,
+  modern geometric interpretation of media creation,
+  clean uniform line weight throughout,
+  perfectly square format, scalable design,
+  aspect ratio 1:1

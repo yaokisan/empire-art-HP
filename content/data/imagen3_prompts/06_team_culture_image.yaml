@@ -1,0 +1,45 @@
+# Imagen3 画像生成要件: チーム文化ビジュアル
+
+title: "少数精鋭チーム文化の表現"
+purpose: "少数精鋭による高い生産性を表現する画像"
+
+requirements:
+  concept: |
+    少数の要素が相乗効果を生み出し、巨大な価値を創造する様子。
+    個々の高い能力と、チームとしての調和を抽象的に表現。
+    「1人が100人分」のコンセプトを別角度から視覚化。
+
+  style:
+    - 抽象的でコンセプチュアル
+    - ミニマルで洗練された構成
+    - バランスと調和を重視
+    - プレミアムな質感
+
+  color_scheme:
+    primary: "ネイビー (#1e2241)"
+    secondary: "白とグレーのグラデーション"
+    accent: "微細な光の要素"
+    overall: "落ち着いた配色で統一"
+
+  visual_elements:
+    - 少数の幾何学的形状（3-5個）
+    - 形状間の相互作用を示す線や光
+    - 中心に向かって集約される構成
+    - 空間を効果的に使った余白
+
+  avoid:
+    - 人物のシルエット
+    - オフィス家具や具体的な場所
+    - 混雑した構成
+    - ステレオタイプなチームワーク表現
+
+prompt_for_imagen3: |
+  Abstract minimalist composition showing synergy,
+  3-5 geometric shapes in perfect balance,
+  navy blue (#1e2241) and white color scheme with subtle gradients,
+  connecting lines and light beams between elements,
+  large negative space emphasizing "less is more" concept,
+  sophisticated representation of small elite team creating exponential value,
+  clean modern aesthetic, premium quality,
+  horizontal composition suitable for web section,
+  aspect ratio 14:9

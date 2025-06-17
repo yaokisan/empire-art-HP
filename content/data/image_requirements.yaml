@@ -1,0 +1,105 @@
+# Empire Art HP用画像素材要件
+
+hero_image:
+  description: |
+    ヒーローセクション用の背景画像。
+    「1人が100人分の価値を生む」というコンセプトを抽象的に表現。
+    ミニマルで洗練された、テクノロジーとアートの融合を感じさせる画像。
+  specifications:
+    - 解像度: 1920x1080px以上
+    - 形式: JPG or WebP
+    - 色調: ネイビー(#1e2241)を基調とした暗めのトーン
+  prompt: |
+    Abstract minimal art representing exponential productivity and digital transformation,
+    navy blue dominant color scheme, geometric patterns suggesting multiplication effect,
+    clean modern aesthetic, subtle tech elements, premium quality,
+    one person creating ripple effects, minimalist style
+
+philosophy_visual:
+  description: |
+    理念セクション用のビジュアル。
+    「すごいものを作って、ビックリさせる」を視覚化。
+    創造性と驚きを表現する抽象的なアート。
+  specifications:
+    - 解像度: 1200x800px以上
+    - 形式: JPG or WebP
+    - 背景: 透過または白
+  prompt: |
+    Abstract art representing creative breakthrough and innovation,
+    minimalist style with dynamic elements suggesting surprise and wonder,
+    clean lines with organic burst patterns, monochromatic with accent colors,
+    professional and sophisticated, suitable for tech startup
+
+growth_engineering_icon:
+  description: |
+    Growth Engineering事業を表すアイコン/イラスト。
+    データドリブンな成長、マーケティングの最適化を表現。
+  specifications:
+    - 解像度: 800x800px
+    - 形式: PNG (透過背景)
+    - スタイル: ラインアート or ミニマルイラスト
+  prompt: |
+    Minimalist icon design for growth marketing service,
+    upward trending graph combined with gear or engineering elements,
+    clean line art style, navy blue color, professional tech aesthetic,
+    suggesting optimization and measurable results
+
+media_creation_icon:
+  description: |
+    Media Creation事業（BEAUTY ROAD等）を表すアイコン/イラスト。
+    メディアコンテンツ制作、映像、ストーリーテリングを表現。
+  specifications:
+    - 解像度: 800x800px
+    - 形式: PNG (透過背景)
+    - スタイル: ラインアート or ミニマルイラスト
+  prompt: |
+    Minimalist icon design for media creation service,
+    abstract representation of video/content creation,
+    play button merged with creative elements,
+    clean line art style, navy blue color, suggesting storytelling and impact
+
+ai_products_icon:
+  description: |
+    AI Products事業を表すアイコン/イラスト。
+    人工知能、自動化、革新的な生産性向上を表現。
+  specifications:
+    - 解像度: 800x800px
+    - 形式: PNG (透過背景)
+    - スタイル: ラインアート or ミニマルイラスト
+  prompt: |
+    Minimalist icon design for AI products and services,
+    abstract neural network or AI brain concept,
+    clean geometric patterns suggesting intelligence and automation,
+    line art style, navy blue color, futuristic yet approachable
+
+team_culture_image:
+  description: |
+    少数精鋭のチーム文化を表現する画像。
+    実際の写真がない場合の代替案として、
+    コラボレーション、創造性、高い生産性を抽象的に表現。
+  specifications:
+    - 解像度: 1400x900px以上
+    - 形式: JPG or WebP
+    - スタイル: 抽象的またはイラスト
+  prompt: |
+    Abstract representation of small elite team collaboration,
+    minimalist workspace concept with few but impactful elements,
+    clean modern aesthetic suggesting high productivity and creativity,
+    geometric shapes representing individuals creating exponential value,
+    navy and white color scheme
+
+future_vision_visual:
+  description: |
+    将来ビジョンセクション用のビジュアル。
+    「Empire（帝国）を築く」という壮大なビジョンを
+    洗練された形で表現。
+  specifications:
+    - 解像度: 1600x900px以上
+    - 形式: JPG or WebP
+    - スタイル: 抽象的、未来的
+  prompt: |
+    Abstract futuristic cityscape or digital empire concept,
+    minimalist geometric patterns suggesting growth and expansion,
+    clean lines with subtle tech elements, navy blue gradient,
+    premium quality, suggesting ambition without being ostentatious,
+    digital transformation theme

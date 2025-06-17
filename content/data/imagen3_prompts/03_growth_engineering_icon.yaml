@@ -1,0 +1,45 @@
+# Imagen3 画像生成要件: Growth Engineeringアイコン
+
+title: "Growth Engineering 事業アイコン"
+purpose: "成果報酬型マーケティング事業を表現するアイコン"
+
+requirements:
+  concept: |
+    データドリブンな成長とエンジニアリング的アプローチの融合。
+    成長曲線と技術的要素（歯車、回路など）を組み合わせて、
+    システマティックな成長を実現するサービスを表現。
+
+  style:
+    - シンプルなラインアート
+    - モダンでクリーンなデザイン
+    - アイコニックで識別しやすい
+    - テクニカルかつ親しみやすい
+
+  color_scheme:
+    primary: "ネイビー (#1e2241) の単色"
+    background: "透明（PNG）"
+    line_weight: "均一で適度な太さ"
+    overall: "モノクロームで統一"
+
+  visual_elements:
+    - 上昇する成長グラフ
+    - エンジニアリング要素（歯車、回路、ノード）
+    - 最適化を示唆する円形の流れ
+    - データポイントやコネクション
+
+  avoid:
+    - 複雑すぎるディテール
+    - リアルな3D表現
+    - 多色使い
+    - 一般的すぎるグラフだけの表現
+
+prompt_for_imagen3: |
+  Minimalist line art icon design,
+  growth chart ascending line combined with gear mechanism,
+  single navy blue color (#1e2241) on transparent background,
+  clean geometric style with uniform line weight,
+  circular composition suggesting optimization cycle,
+  data nodes connected to growth line,
+  modern tech company service icon,
+  perfectly square format, scalable design,
+  aspect ratio 1:1
