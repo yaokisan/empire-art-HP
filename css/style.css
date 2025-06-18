@@ -49,7 +49,8 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
+    height: 75vh;
+    min-height: 600px;
     display: flex;
     flex-direction: column;
     background-color: var(--color-primary);
@@ -63,8 +64,10 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(255,255,255,0.03) 0%, transparent 50%);
+    background-image: url('../assets/images/Image_fx (2).jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
 }
 
 .hero-content {
@@ -73,14 +76,21 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xs) var(--spacing-lg);
+    justify-content: flex-start;
 }
 
 .hero-top {
     flex: 0 0 auto;
     display: flex;
-    justify-content: flex-start;
-    margin-bottom: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    margin-top: 0;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
 }
 
 .logo-container {
@@ -88,8 +98,9 @@ body {
 }
 
 .logo {
-    width: 180px;
+    width: 432px;
     height: auto;
+    max-width: 80vw;
 }
 
 .hero-main {
@@ -99,15 +110,17 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    padding-top: 200px;
+    margin-bottom: 120px;
 }
 
 .hero-number {
     position: absolute;
-    font-size: clamp(15rem, 25vw, 30rem);
+    font-size: clamp(25.5rem, 42.5vw, 51rem);
     font-weight: 100;
     color: rgba(255, 255, 255, 0.05);
     z-index: -1;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     line-height: 1;
@@ -119,27 +132,30 @@ body {
     align-items: center;
     color: var(--color-secondary);
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.1;
     letter-spacing: 0.02em;
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
 }
 
 .hero-title-line {
     display: block;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    font-weight: 300;
-    margin: 0.2em 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin: 0.1em 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .hero-title-large {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 100;
-    letter-spacing: 0.1em;
-    margin: 0.1em 0;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    margin: 0.05em 0;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 .scroll-indicator {
     position: absolute;
-    bottom: var(--spacing-lg);
+    bottom: var(--spacing-md);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -164,39 +180,73 @@ body {
 
 /* About Section */
 .about {
-    padding: var(--spacing-xl) 0;
+    position: relative;
+    padding: var(--spacing-lg) 0;
     background-color: var(--color-secondary);
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/Image_fx5.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.about .container {
+    position: relative;
+    z-index: 1;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .mission-content {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-md);
 }
 
 .mission-text {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 300;
-    line-height: 1.6;
-    letter-spacing: 0.05em;
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
     margin-bottom: var(--spacing-md);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.mission-line {
+    display: block;
 }
 
 .mission-sub {
-    font-size: 1.25rem;
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: var(--color-text-light);
     letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
 }
 
 .value-item {
@@ -225,7 +275,7 @@ body {
 
 /* Services Section */
 .services {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
     background-color: var(--color-bg-light);
 }
 
@@ -247,18 +297,23 @@ body {
     transform: translateY(-5px);
 }
 
-.service-icon {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto var(--spacing-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.service-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-.service-icon svg {
+.service-img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover .service-img {
+    transform: scale(1.05);
 }
 
 .service-title {
@@ -273,10 +328,81 @@ body {
     line-height: 1.8;
 }
 
+/* Team Culture Section */
+.team-culture {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-bg-light);
+}
+
+.team-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-top: var(--spacing-lg);
+}
+
+.team-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-text {
+    padding: var(--spacing-md);
+}
+
+.team-motto {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+}
+
+.team-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+.team-values {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.team-value {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.value-label {
+    font-weight: 700;
+    color: var(--color-primary);
+    min-width: 100px;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+}
+
+.value-text {
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+}
+
 /* Vision Section */
 .vision {
     position: relative;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
     background-color: var(--color-primary);
     color: var(--color-secondary);
     overflow: hidden;
@@ -301,10 +427,11 @@ body {
 }
 
 .vision-text p {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    line-height: 2;
-    font-weight: 300;
-    letter-spacing: 0.05em;
+    font-family: 'Zen Kaku Gothic New', 'Noto Sans JP', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.8;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .vision-timeline {
@@ -349,7 +476,7 @@ body {
 
 /* Contact Section */
 .contact {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
     background-color: var(--color-secondary);
 }
 
@@ -402,24 +529,43 @@ body {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    .hero {
+        height: 67vh;
+        min-height: 500px;
+    }
+    
     .hero-content {
-        padding: var(--spacing-md);
+        padding: var(--spacing-xs) var(--spacing-md);
+        justify-content: flex-start;
+    }
+    
+    .hero-top {
+        margin-top: 0;
+        margin-bottom: var(--spacing-xs);
+    }
+    
+    .hero-main {
+        margin-bottom: 80px;
+        justify-content: center;
+        flex: 1;
+        padding-top: var(--spacing-lg);
     }
     
     .logo {
-        width: 140px;
+        width: 269px;
+        max-width: 85vw;
     }
     
     .hero-number {
-        font-size: clamp(8rem, 20vw, 15rem);
+        font-size: clamp(13.6rem, 34vw, 25.5rem);
     }
     
     .hero-title-line {
-        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        font-size: clamp(2rem, 7vw, 3.2rem);
     }
     
     .hero-title-large {
-        font-size: clamp(2rem, 10vw, 3.5rem);
+        font-size: clamp(3.2rem, 15vw, 6.5rem);
     }
     
     .values {
@@ -438,5 +584,26 @@ body {
     
     .contact-info {
         grid-template-columns: 1fr;
+    }
+    
+    .team-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .team-image {
+        height: 250px;
+    }
+    
+    .mission-text {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+    
+    .mission-sub {
+        font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+    }
+    
+    .vision-text p {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
     }
 }
