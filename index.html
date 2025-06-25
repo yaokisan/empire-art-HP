@@ -19,26 +19,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=M+PLUS+1p:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/images/empireart_logo_plane.png" alt="Empire Art">
+            </div>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">私たちについて</a>
+                <a href="#services" class="nav-link">事業内容</a>
+                <a href="#culture" class="nav-link">企業文化</a>
+                <a href="#vision" class="nav-link">ビジョン</a>
+                <a href="#company-overview" class="nav-link">会社概要</a>
+                <a href="#contact" class="nav-link">お問い合わせ</a>
+            </div>
+            <div class="hamburger-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-content">
+                <a href="#about" class="mobile-link">私たちについて</a>
+                <a href="#services" class="mobile-link">事業内容</a>
+                <a href="#culture" class="mobile-link">企業文化</a>
+                <a href="#vision" class="mobile-link">ビジョン</a>
+                <a href="#company-overview" class="mobile-link">会社概要</a>
+                <a href="#contact" class="mobile-link">お問い合わせ</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-content">
-            <div class="hero-top">
-                <div class="logo-container">
-                    <img src="assets/images/empireart_logo_plane_negate (1).png" alt="Empire Art" class="logo">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-tag">INNOVATION FROM JAPAN</div>
+                <h1 class="hero-title">
+                    <span class="hero-title-main">1人が100人分の</span>
+                    <span class="hero-title-accent">価値を生む世界へ</span>
+                </h1>
+                <p class="hero-description">
+                    日本発のクリエイティブ・テック企業として<br>
+                    "Build the Remarkable"をミッションに<br>
+                    新たな時代の究極の事業組織＝帝国を構築します
+                </p>
+                <div class="hero-cta">
+                    <a href="#services" class="btn btn-primary">事業を見る</a>
+                    <a href="#about" class="btn btn-secondary">詳しく知る</a>
                 </div>
             </div>
-            <div class="hero-main">
-                <div class="hero-number">100</div>
-                <h1 class="hero-title">
-                    <span class="hero-title-line">1人が</span>
-                    <span class="hero-title-line hero-title-large">100人分</span>
-                    <span class="hero-title-line">の価値を生む世界へ</span>
-                </h1>
+            <div class="hero-visual">
+                <div class="hero-logo">
+                    <img src="assets/images/empireart_logo_plane_negate (1).png" alt="Empire Art">
+                </div>
             </div>
-            <div class="scroll-indicator">
-                <span class="scroll-text">Scroll</span>
-                <div class="scroll-line"></div>
-            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>下にスクロール</span>
+            <div class="scroll-indicator"></div>
         </div>
         <div class="hero-bg"></div>
     </section>
@@ -51,26 +93,26 @@
             </div>
             <div class="mission-content">
                 <p class="mission-text">
-                    <span class="mission-line">すごいものを作って、</span>
-                    <span class="mission-line">ビックリさせる。</span>
+                    <span class="mission-line">すごいものを作って</span>
+                    <span class="mission-line">ビックリさせる</span>
                 </p>
-                <p class="mission-sub">Build the Remarkable.</p>
+                <p class="mission-sub">Build the Remarkable</p>
             </div>
             <div class="values">
                 <div class="value-item">
                     <div class="value-number">01</div>
-                    <h3 class="value-title">少数精鋭</h3>
-                    <p class="value-desc">最小のチームで最大の価値を創造する</p>
+                    <h3 class="value-title">異次元である</h3>
+                    <p class="value-desc">ただ価値を提供するのではなく、「異次元」なアウトプットで驚くべき価値を提供する</p>
                 </div>
                 <div class="value-item">
                     <div class="value-number">02</div>
-                    <h3 class="value-title">テック×クリエイティブ</h3>
-                    <p class="value-desc">技術と創造性の融合で新しい価値を生む</p>
+                    <h3 class="value-title">アーティストである</h3>
+                    <p class="value-desc">事業を成功させるのは当然として、同時に表現者として人の心に残る作品のようなアウトプットを届ける</p>
                 </div>
                 <div class="value-item">
                     <div class="value-number">03</div>
-                    <h3 class="value-title">顧客理解</h3>
-                    <p class="value-desc">徹底した顧客理解によるマーケティング力</p>
+                    <h3 class="value-title">未来志向である</h3>
+                    <p class="value-desc">常に未来を描き、その未来を実現するための行動を徹底する</p>
                 </div>
             </div>
         </div>
@@ -81,38 +123,87 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Services</h2>
-                <p class="section-subtitle">私たちの作品カテゴリー</p>
+                <p class="section-subtitle">作品</p>
             </div>
             <div class="services-grid">
-                <div class="service-item">
+                <div class="service-card">
                     <div class="service-image">
-                        <img src="assets/images/Image_fx.jpg" alt="Growth Engineering" class="service-img">
+                        <img src="assets/images/スクリーンショット 2025-06-25 21.53.23.png" alt="BEAUTY ROAD" class="service-img">
                     </div>
-                    <h3 class="service-title">Growth Engineering</h3>
-                    <p class="service-desc">
-                        成果にコミットするマーケティング作品。<br>
-                        データと創造性で、確実な成長を実現します。
-                    </p>
+                    <div class="service-content">
+                        <div class="service-category">Media</div>
+                        <h3 class="service-title">BEAUTY ROAD</h3>
+                        <p class="service-desc">
+                            美容業界に特化したYouTube番組の企画・制作・運営。<br>
+                            業界の最新トレンドと専門知識を発信し、美容のプロフェッショナルと消費者をつなぐプラットフォームを提供。
+                        </p>
+                        <div class="service-tags">
+                            <span class="service-tag">YouTube運営</span>
+                            <span class="service-tag">美容業界</span>
+                            <span class="service-tag">コンテンツ制作</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-item">
+                
+                <div class="service-card">
                     <div class="service-image">
-                        <img src="assets/images/Image_fx3.jpg" alt="Media Creation" class="service-img">
+                        <div class="service-placeholder">
+                            <span class="placeholder-text">Image Coming Soon</span>
+                        </div>
                     </div>
-                    <h3 class="service-title">Media Creation</h3>
-                    <p class="service-desc">
-                        業界を変革するメディア作品。<br>
-                        BEAUTY ROADなど、新しい価値を創造します。
-                    </p>
+                    <div class="service-content">
+                        <div class="service-category">Training</div>
+                        <h3 class="service-title">バックオフィス研修</h3>
+                        <p class="service-desc">
+                            最新テクノロジーを活用した革新的なバックオフィス業務研修プログラム。<br>
+                            AI・デジタルツールを駆使し、企業の業務効率化と人材育成を同時に実現。
+                        </p>
+                        <div class="service-tags">
+                            <span class="service-tag">企業研修</span>
+                            <span class="service-tag">DX推進</span>
+                            <span class="service-tag">業務効率化</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-item">
+                
+                <div class="service-card">
                     <div class="service-image">
-                        <img src="assets/images/Image_fx (1).jpg" alt="AI Products" class="service-img">
+                        <div class="service-placeholder">
+                            <span class="placeholder-text">Image Coming Soon</span>
+                        </div>
                     </div>
-                    <h3 class="service-title">AI Products</h3>
-                    <p class="service-desc">
-                        生産性を革新するAI作品。<br>
-                        次世代の働き方を可能にします。
-                    </p>
+                    <div class="service-content">
+                        <div class="service-category">SaaS</div>
+                        <h3 class="service-title">BEAUTY BOARD</h3>
+                        <p class="service-desc">
+                            美容サロン向けの包括的なDXソリューション。<br>
+                            予約管理・顧客管理・売上分析・スタッフ管理を一元化し、サロン運営の完全デジタル化を実現。
+                        </p>
+                        <div class="service-tags">
+                            <span class="service-tag">サロンDX</span>
+                            <span class="service-tag">業務管理</span>
+                            <span class="service-tag">データ分析</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="assets/images/IMG_4071.PNG" alt="D2C事業" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">D2C</div>
+                        <h3 class="service-title">D2C事業</h3>
+                        <p class="service-desc">
+                            独自のブランド戦略とデジタルマーケティングを融合したD2C事業。<br>
+                            消費者との直接的な関係構築を通じて、新しい価値提供モデルを創造。
+                        </p>
+                        <div class="service-tags">
+                            <span class="service-tag">ブランド構築</span>
+                            <span class="service-tag">EC運営</span>
+                            <span class="service-tag">顧客体験</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,14 +218,14 @@
             </div>
             <div class="team-content">
                 <div class="team-image">
-                    <img src="assets/images/Image_fx (4).jpg" alt="Team Culture" class="team-img">
+                    <img src="assets/images/ミニマル空間でのアイデア創出.jpg" alt="Team Culture" class="team-img">
                 </div>
                 <div class="team-text">
                     <h3 class="team-motto">Quality over Quantity</h3>
                     <p class="team-description">
-                        私たちは人数ではなく、一人ひとりの価値創造能力にこだわります。<br>
-                        最高のタレントが集まり、互いを高め合う環境で、<br>
-                        従来の100倍の生産性を実現します。
+                        一人ひとりの価値創造能力にこだわり、<br>
+                        最高のタレントが集結し、互いを高め合う事で、<br>
+                        従来の100倍の生産性を実現する。
                     </p>
                     <div class="team-values">
                         <div class="team-value">
@@ -147,7 +238,7 @@
                         </div>
                         <div class="team-value">
                             <span class="value-label">Innovation</span>
-                            <span class="value-text">常に新しい価値の創造</span>
+                            <span class="value-text">常識にとらわれない目標設定</span>
                         </div>
                     </div>
                 </div>
@@ -162,10 +253,11 @@
                 <h2 class="vision-title">Our Vision</h2>
                 <div class="vision-text">
                     <p>
-                        私たちは「Empire（帝国）」を築きます。<br>
-                        それは支配ではなく、<br>
-                        すべてを「作品」として捉え、<br>
-                        異次元の価値を生み出す世界です。
+                        「Empire（帝国）」「Art（芸術）」<br>
+                        それはビジネスをビジネスに留めず<br>
+                        「作品」として昇華させる事で、<br>
+                        「異次元の価値を生む国を作る」という
+                        人生を賭けた究極の作品作りです。
                     </p>
                 </div>
                 <div class="vision-timeline">
@@ -185,6 +277,40 @@
             </div>
             <div class="vision-bg">
                 <img src="assets/images/Image_fx (2).jpg" alt="" class="vision-bg-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Overview Section -->
+    <section class="company-overview" id="company-overview">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Company Overview</h2>
+                <p class="section-subtitle">会社概要</p>
+            </div>
+            <div class="overview-content">
+                <div class="overview-table">
+                    <div class="overview-row">
+                        <div class="overview-label">会社名</div>
+                        <div class="overview-value">Empire Art株式会社</div>
+                    </div>
+                    <div class="overview-row">
+                        <div class="overview-label">設立</div>
+                        <div class="overview-value">2024年2月</div>
+                    </div>
+                    <div class="overview-row">
+                        <div class="overview-label">代表取締役</div>
+                        <div class="overview-value">小林 弥起</div>
+                    </div>
+                    <div class="overview-row">
+                        <div class="overview-label">所在地</div>
+                        <div class="overview-value">東京都新宿区西新宿6-5-1 新宿アイランドタワー2F</div>
+                    </div>
+                    <div class="overview-row">
+                        <div class="overview-label">事業内容</div>
+                        <div class="overview-value">デジタルマーケティング業務/コンサルティング業務/電子商取引（EC）およびオンラインリテールサービス業務/AI駆動型デジタルサービス業</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -217,5 +343,7 @@
             <p class="copyright">&copy; 2024 Empire Art Inc. All rights reserved.</p>
         </div>
     </footer>
+    
+    <script src="js/script.js"></script>
 </body>
 </html>
