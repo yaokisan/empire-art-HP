@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://empire-art.jp/sitemap.xml
+Sitemap: https://empire-art.vercel.app/sitemap.xml
