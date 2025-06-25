@@ -38,6 +38,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=M+PLUS+1p:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
     
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <!-- 構造化データ (Schema.org) -->
     <script type="application/ld+json">
     {
@@ -106,6 +111,17 @@
     </script>
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div class="loading-screen">
+        <div class="loading-logo">
+            <img src="assets/images/empireart_logo_plane.png" alt="Empire Art">
+        </div>
+        <div class="loading-text">Loading Empire Art...</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
@@ -140,14 +156,17 @@
         </div>
     </nav>
 
+    <!-- Progress Bar -->
+    <div class="scroll-progress"></div>
+    
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-tag">INNOVATION FROM JAPAN</div>
+                <div class="hero-tag" data-aos="fade-down" data-aos-delay="200">BUILD THE REMARKABLE</div>
                 <h1 class="hero-title">
-                    <span class="hero-title-main">1人が100人分の</span>
-                    <span class="hero-title-accent">価値を生む世界へ</span>
+                    <span class="hero-title-main typing-text" data-text="1人が100人分の"></span>
+                    <span class="hero-title-accent typing-text" data-text="価値を生む世界へ"></span>
                 </h1>
                 <p class="hero-description">
                     日本発のクリエイティブ・テック企業として<br>
@@ -347,20 +366,6 @@
                         人生を賭けた究極の作品作りです。
                     </p>
                 </div>
-                <div class="vision-timeline">
-                    <div class="timeline-item">
-                        <span class="timeline-year">Now</span>
-                        <span class="timeline-desc">少数精鋭で始動</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">2030</span>
-                        <span class="timeline-desc">業界のスタンダードへ</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">Future</span>
-                        <span class="timeline-desc">世界を変える作品を</span>
-                    </div>
-                </div>
             </div>
             <div class="vision-bg">
                 <img src="assets/images/Image_fx (2).jpg" alt="" class="vision-bg-image">
@@ -431,6 +436,8 @@
         </div>
     </footer>
     
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
