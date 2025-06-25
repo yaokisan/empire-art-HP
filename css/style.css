@@ -75,10 +75,10 @@ body {
 }
 
 .nav-logo img {
-    height: 50px !important;
+    height: 55px !important;
     width: auto !important;
     display: block !important;
-    max-height: 50px !important;
+    max-height: 55px !important;
 }
 
 .nav-menu {
@@ -1440,7 +1440,7 @@ body {
 
 .typing-text.typing {
     opacity: 1;
-    animation: typing 1.5s steps(20, end) forwards;
+    animation: typing 1.2s steps(20, end) forwards;
 }
 
 .typing-text.typing::after {
@@ -1469,12 +1469,20 @@ body {
 /* Mobile typing adjustments */
 @media (max-width: 768px) {
     .typing-text.typing {
-        animation: typing 1.2s steps(15, end) forwards;
+        animation: typing 1.0s steps(15, end) forwards;
     }
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
+    /* Force logo size in this final media query */
+    .nav-logo img {
+        height: 50px !important;
+        width: auto !important;
+        display: block !important;
+        max-height: 50px !important;
+    }
+    
     .hero {
         height: 67vh;
         min-height: 500px;

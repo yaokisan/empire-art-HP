@@ -6,8 +6,8 @@ AOS.init({
     easing: 'ease-out-cubic'
 });
 
-// Register GSAP ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // Scroll Progress Bar
 const progressBar = document.querySelector('.scroll-progress');
@@ -48,16 +48,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Remove cursor after typing completes
                 setTimeout(() => {
                     element.classList.add('typing-complete');
-                }, 1500 + (index * 200)); // Stagger the completion
+                }, 1000 + (index * 150)); // Faster completion
                 
-            }, 800 + (index * 1800)); // Delay between lines
+            }, 500 + (index * 1200)); // Faster delay between lines
         });
     }
     
     // Start typing after loading screen
     setTimeout(() => {
         startTypingAnimation();
-    }, 2500);
+    }, 2200);
     
     gsap.from('.hero-description', {
         opacity: 0,
@@ -163,16 +163,30 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
             if (target) {
-                gsap.to(window, {
-                    duration: 1,
-                    scrollTo: {
-                        y: target,
-                        offsetY: 80
-                    },
-                    ease: 'power3.inOut'
-                });
+                // Calculate target position with offset for fixed header
+                const targetPosition = target.offsetTop - 80;
+                
+                // Use native smooth scroll as fallback if GSAP ScrollTo fails
+                if (typeof gsap !== 'undefined' && gsap.to) {
+                    gsap.to(window, {
+                        duration: 0.3,
+                        scrollTo: {
+                            y: targetPosition,
+                            autoKill: false
+                        },
+                        ease: 'power2.out'
+                    });
+                } else {
+                    // Fallback to native smooth scroll
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
