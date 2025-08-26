@@ -1315,6 +1315,11 @@ body {
     filter: blur(5px);
 }
 
+/* Slight blur for subtle privacy */
+.blur-slight {
+    filter: blur(1.5px);
+}
+
 /* Progress indicator */
 .scroll-progress {
     position: fixed;
