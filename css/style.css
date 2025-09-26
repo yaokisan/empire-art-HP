@@ -983,6 +983,30 @@ body {
     color: var(--color-secondary);
 }
 
+.service-cta {
+    margin-top: var(--spacing-md);
+    text-align: center;
+}
+
+.btn-training {
+    background: var(--gradient-primary);
+    color: var(--color-secondary);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-training:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(42, 46, 71, 0.3);
+    background: var(--gradient-accent);
+}
+
 /* Team Culture Section */
 .team-culture {
     padding: var(--spacing-lg) 0;
@@ -1498,6 +1522,462 @@ body {
 @media (max-width: 768px) {
     .typing-text.typing {
         animation: typing 1.0s steps(15, end) forwards;
+    }
+}
+
+/* Training Page Styles */
+.training-hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    overflow: hidden;
+    padding: var(--spacing-xl) 0;
+}
+
+.training-hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.training-badge {
+    display: inline-block;
+    background: var(--gradient-accent);
+    color: var(--color-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.training-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-secondary);
+}
+
+.training-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.training-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.highlight-item {
+    text-align: center;
+}
+
+.highlight-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-accent-light);
+    margin-bottom: 0.5rem;
+}
+
+.highlight-text {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+}
+
+.training-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+    border-radius: 12px;
+}
+
+.btn-inquiry {
+    background: var(--gradient-accent);
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-inquiry:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* Training Purpose Section */
+.training-purpose {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-secondary);
+}
+
+.purpose-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.purpose-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    text-align: left;
+}
+
+.purpose-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Training Overview Section */
+.training-overview {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-bg-light);
+}
+
+/* Training Details Section */
+.training-details {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-secondary);
+}
+
+.details-table {
+    background: var(--color-bg-light);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* PCビューの研修詳細テーブル */
+.details-header {
+    display: grid;
+    grid-template-columns: 80px 2fr 80px 3fr;
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    padding: var(--spacing-md);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.header-session, .header-content, .header-duration, .header-description {
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    padding: 0 var(--spacing-xs);
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 80px 2fr 80px 3fr;
+    padding: var(--spacing-lg) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    background: var(--color-secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    align-items: start;
+    gap: var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.detail-row:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.detail-session {
+    font-weight: 700;
+    color: var(--color-primary);
+    text-align: center;
+    font-size: 1rem;
+    background: var(--color-bg-light);
+    padding: var(--spacing-sm);
+    border-radius: 6px;
+    border: 2px solid var(--color-accent);
+}
+
+.detail-content {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    padding: 0 var(--spacing-sm);
+    line-height: 1.4;
+}
+
+.detail-duration {
+    color: var(--color-accent);
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(99, 102, 241, 0.1);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 20px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.detail-description {
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 0.9rem;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Training Contact Section */
+.training-contact {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.contact-training-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.contact-training-info {
+    padding: var(--spacing-lg);
+}
+
+.contact-training-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-secondary);
+}
+
+.contact-training-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-training-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+}
+
+.feature-text {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-training-cta {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-note {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: var(--spacing-md);
+    line-height: 1.4;
+}
+
+/* Training Page Responsive Design */
+@media (max-width: 768px) {
+    .training-hero {
+        min-height: 50vh;
+        padding: var(--spacing-md) 0;
+    }
+
+    .training-title {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .training-subtitle {
+        font-size: clamp(1rem, 3vw, 1.125rem);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .training-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .btn-large {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    /* スマホ用の研修詳細テーブルレイアウト */
+    .details-header {
+        display: none; /* ヘッダーを非表示 */
+    }
+
+    .detail-row {
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-lg);
+        border: 1px solid var(--color-border);
+        border-radius: 12px;
+        margin-bottom: var(--spacing-lg);
+        background: var(--color-secondary);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .detail-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .detail-row::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--gradient-accent);
+    }
+
+    .detail-session {
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: var(--color-accent);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: var(--spacing-sm);
+        text-align: left;
+        background: rgba(99, 102, 241, 0.1);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: 4px;
+        width: fit-content;
+    }
+
+    .detail-content {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: var(--spacing-md);
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .detail-duration {
+        font-size: 0.875rem;
+        color: var(--color-accent);
+        font-weight: 600;
+        text-align: left;
+        margin-bottom: var(--spacing-md);
+        background: rgba(99, 102, 241, 0.05);
+        padding: var(--spacing-xs) var(--spacing-sm);
+        border-radius: 6px;
+        width: fit-content;
+        border-left: 3px solid var(--color-accent);
+    }
+
+    .detail-description {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: var(--color-text);
+        text-align: left;
+    }
+
+    .contact-training-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .purpose-text {
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    .contact-training-cta {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    .btn-inquiry {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .contact-note {
+        width: 100%;
+        text-align: center;
+        margin-top: var(--spacing-sm);
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .details-header {
+        grid-template-columns: 40px 80px 60px 1fr 1fr;
+    }
+
+    .detail-row {
+        grid-template-columns: 40px 80px 60px 1fr 1fr;
+        padding: var(--spacing-sm);
+    }
+
+    .detail-content {
+        font-size: 0.8rem;
+        padding: 0 var(--spacing-xs);
+    }
+
+    .detail-description {
+        font-size: 0.75rem;
+        padding: 0 var(--spacing-xs);
+    }
+
+    .contact-training-info {
+        padding: var(--spacing-md);
     }
 }
 
