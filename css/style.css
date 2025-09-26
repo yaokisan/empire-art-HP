@@ -796,6 +796,29 @@ body {
     white-space: nowrap;
 }
 
+.mission-sub-line1 {
+    display: inline;
+}
+
+.mission-sub-line2 {
+    display: inline;
+}
+
+@media (max-width: 768px) {
+    .mission-sub {
+        white-space: normal;
+        text-align: center;
+    }
+
+    .mission-sub-line1 {
+        display: block;
+    }
+
+    .mission-sub-line2 {
+        display: block;
+    }
+}
+
 .values {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
