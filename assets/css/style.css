@@ -1,0 +1,2393 @@
+/* ========================================
+   リセット・ベーススタイル
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* カラーパレット - ダークモード/ライトモードに関係なく固定 */
+    --color-primary: #2a2e47;
+    --color-secondary: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-light: #6b7280;
+    --color-border: #e5e7eb;
+    --color-bg-light: #f9fafb;
+    --color-accent: #6366f1;
+    --color-accent-light: #818cf8;
+    --color-accent-dark: #4f46e5;
+
+    /* フォント */
+    --font-primary: 'Times New Roman', '游明朝', 'Yu Mincho', 'YuMincho', 'ヒラギノ明朝 Pro', 'Hiragino Mincho Pro', 'MS PMincho', serif;
+    --font-heading: 'Times New Roman', '游明朝', 'Yu Mincho', 'YuMincho', 'ヒラギノ明朝 Pro', 'Hiragino Mincho Pro', 'MS PMincho', serif;
+
+    /* レイアウト */
+    --container-width: 1200px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 64px;
+    --spacing-xl: 128px;
+    --spacing-2xl: 160px;
+
+    /* グラデーション */
+    --gradient-primary: linear-gradient(135deg, #2a2e47 0%, #1e2241 100%);
+    --gradient-accent: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+    --gradient-subtle: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
+
+    /* シャドウ */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 12px 40px rgba(99, 102, 241, 0.15);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-card-hover: 0 8px 30px rgba(99, 102, 241, 0.12);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+
+    /* トランジション */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ダークモード/ライトモードに関係なくライトモードの色を強制 */
+html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* ========================================
+   ヘッダー
+   ======================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(0px);
+}
+
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.header-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 30px max(var(--spacing-sm), calc((100% - var(--container-width)) / 2 + var(--spacing-sm))) 0 calc(var(--spacing-lg) * 2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100px;
+}
+
+.logo {
+    flex: 0 0 auto;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 60px;
+    width: auto;
+    transition: opacity 0.3s ease;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.header.scrolled .logo-image {
+    filter: none;
+}
+
+.logo a:hover .logo-image {
+    opacity: 0.8;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.nav-list a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header.scrolled .nav-list a {
+    color: var(--color-text);
+    text-shadow: none;
+}
+
+.nav-list a:hover {
+    color: var(--color-accent-light);
+}
+
+.header.scrolled .nav-list a:hover {
+    color: var(--color-accent);
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-list a:hover::after {
+    width: calc(100% - 8px);
+}
+
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-secondary);
+    box-shadow: var(--shadow);
+    list-style: none;
+    min-width: 200px;
+    padding: var(--spacing-sm);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: visible;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--color-text);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 0;
+    background-color: transparent;
+    border: none;
+    text-shadow: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--color-bg-light);
+    transform: none;
+}
+
+.dropdown-more {
+    font-weight: 600;
+    color: var(--color-accent) !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: var(--spacing-xs) !important;
+    padding-top: var(--spacing-sm) !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.dropdown-more:hover {
+    background-color: var(--color-bg-light) !important;
+    color: var(--color-accent) !important;
+}
+
+/* ヘッダーが透明な時（Hero上）のドロップダウンメニューは通常通り */
+.header:not(.scrolled) .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.header:not(.scrolled) .dropdown-menu a {
+    color: var(--color-text);
+}
+
+.header-actions {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-secondary);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header.scrolled .hamburger span {
+    background-color: var(--color-text);
+    box-shadow: none;
+}
+
+/* ========================================
+   ヒーローセクション
+   ======================================== */
+.hero {
+    position: relative;
+    height: 120vh;
+    overflow: hidden;
+    margin-top: -100px;
+    padding-top: 100px;
+    padding-bottom: 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: #333;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: var(--color-secondary);
+    z-index: 10;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.hero-left {
+    flex: 0 0 auto;
+    max-width: 600px;
+    margin-left: calc(var(--spacing-lg) * 2);
+    padding-left: var(--spacing-md);
+    opacity: 0;
+    animation: fadeInLeft 1s ease 0.3s forwards;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-shadow: 2px 4px 16px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-align: left;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+}
+
+.hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 2px 4px 16px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.1em;
+    text-transform: none;
+    opacity: 1;
+    text-align: left;
+    line-height: 1.4;
+    margin-bottom: 0;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+}
+
+.tw-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: twBlink 0.7s step-end infinite;
+}
+
+@keyframes twBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ========================================
+   セクション共通スタイル
+   ======================================== */
+section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(42, 46, 71, 0.1) 50%, transparent 100%);
+    opacity: 0.5;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 72px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    line-height: 1.15;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+}
+
+@media (max-width: 767px) {
+    .section-title {
+        font-size: 48px;
+        letter-spacing: 0.08em;
+    }
+
+    .section-title::after {
+        width: 60px;
+        height: 3px;
+    }
+}
+
+/* ========================================
+   企業コンセプトセクション
+   ======================================== */
+.concept {
+    background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-bg-light) 50%, var(--color-secondary) 100%);
+    position: relative;
+}
+
+.concept::before {
+    display: none;
+}
+
+.concept-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.concept-left {
+    flex: 1;
+    text-align: left;
+}
+
+.concept-left .section-title {
+    text-align: left;
+    margin-bottom: var(--spacing-md);
+}
+
+.concept-left .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+.concept-text {
+    font-size: 18px;
+    line-height: 2.0;
+    color: var(--color-text);
+    margin: 0;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+}
+
+.concept-highlight {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.concept-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.concept-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.concept-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.concept-image-bg {
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+}
+
+.concept-image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    max-width: 55%;
+    width: auto;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.6)) drop-shadow(0 8px 24px rgba(255, 255, 255, 0.3));
+}
+
+.concept-image-wrapper:hover .concept-image-overlay {
+    transform: translate(-50%, -50%) rotate(-18deg) scale(1.05);
+    filter: brightness(0) invert(1) drop-shadow(0 6px 16px rgba(255, 255, 255, 0.7)) drop-shadow(0 12px 32px rgba(255, 255, 255, 0.4));
+}
+
+/* タブレットサイズ（768px〜991px）でのMissionセクション */
+@media (max-width: 991px) and (min-width: 768px) {
+    .concept-content {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .concept-left {
+        text-align: left;
+    }
+
+    .concept-left .section-title {
+        text-align: left;
+    }
+
+    .concept-left .section-title::after {
+        left: 0;
+        right: auto;
+        transform: none;
+    }
+
+    .concept-right {
+        width: 100%;
+    }
+
+    .concept-image-wrapper {
+        max-width: 700px;
+    }
+
+    .concept-image-overlay {
+        max-width: 50%;
+        top: 50%;
+        left: 45%;
+        transform: translate(-50%, -50%) rotate(-12deg);
+    }
+}
+
+/* スマホサイズ（767px以下）でのMissionセクション */
+@media (max-width: 767px) {
+    .concept-content {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .concept-left {
+        text-align: left;
+    }
+
+    .concept-left .section-title {
+        text-align: left;
+    }
+
+    .concept-left .section-title::after {
+        left: 0;
+        right: auto;
+        transform: none;
+    }
+
+    .concept-right {
+        width: 100%;
+    }
+
+    .concept-image-wrapper {
+        max-width: 100%;
+    }
+
+    .concept-image-overlay {
+        max-width: 45%;
+        top: 50%;
+        left: 45%;
+        transform: translate(-50%, -50%) rotate(-10deg);
+    }
+}
+
+/* ========================================
+   事業紹介セクション
+   ======================================== */
+.business {
+    background: linear-gradient(135deg, #2a2e47 0%, #1e2241 50%, #2a2e47 100%);
+    padding: 0;
+    margin: 0;
+}
+
+.business-container {
+    display: flex;
+    min-height: auto;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.business-title-section {
+    flex: 0 0 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: var(--spacing-lg) calc(var(--spacing-lg) * 1.5);
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    order: 2;
+}
+
+.business-title-section > * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.business-title-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+.business-title-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.25) 50%, transparent 100%);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+.business-title {
+    font-family: var(--font-heading);
+    font-size: 64px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    letter-spacing: 0.1em;
+    line-height: 1.15;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 1;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    white-space: normal;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.business-title::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--color-secondary);
+    border-radius: 2px;
+}
+
+.business-intro-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.9;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.03em;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.business-more-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.business-more-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-secondary);
+    transition: width 0.3s ease;
+}
+
+.business-more-link:hover {
+    letter-spacing: 0.12em;
+}
+
+.business-more-link:hover::before {
+    width: 100%;
+}
+
+.business-cards-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    background-color: transparent;
+    order: 1;
+}
+
+.business-card-item {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: var(--color-secondary);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--color-secondary);
+    height: 240px;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.business-card-item:nth-child(2n) {
+    border-right: none;
+}
+
+.business-card-item:nth-child(n+3) {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.business-card-item:nth-child(5) {
+    grid-column: 1 / -1;
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.business-card-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.business-card-item:hover {
+    transform: translateY(-6px);
+    z-index: 10;
+    box-shadow: 0 16px 48px rgba(42, 46, 71, 0.25);
+}
+
+.business-card-item:hover::before {
+    opacity: 1;
+}
+
+.business-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.5s ease;
+}
+
+.business-card-item:hover .business-card-image {
+    transform: scale(1.08);
+    filter: brightness(0.3);
+}
+
+.business-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(42, 46, 71, 0.1) 0%, rgba(42, 46, 71, 0.5) 60%, rgba(42, 46, 71, 0.85) 100%);
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.business-card-item:hover .business-card-overlay {
+    background: linear-gradient(180deg, rgba(42, 46, 71, 0.4) 0%, rgba(42, 46, 71, 0.8) 60%, rgba(42, 46, 71, 0.98) 100%);
+}
+
+.business-card-info {
+    position: relative;
+    z-index: 3;
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.business-card-default-content {
+    position: absolute;
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+    bottom: var(--spacing-sm);
+    z-index: 1;
+    margin-top: 0;
+}
+
+.business-card-hover-content {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    margin-bottom: auto;
+    padding-bottom: var(--spacing-sm);
+}
+
+.business-card-item:hover .business-card-hover-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.business-card-title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    color: var(--color-secondary);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+}
+
+.business-card-subtitle {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 4px;
+}
+
+.business-card-description {
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.business-card-features {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-sm);
+}
+
+.business-card-feature-item {
+    background-color: rgba(99, 102, 241, 0.20);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.45);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.business-card-item:hover .business-card-feature-item {
+    background: var(--gradient-accent);
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   企業情報セクション
+   ======================================== */
+.company-info {
+    background: linear-gradient(180deg, var(--color-bg-light) 0%, var(--color-secondary) 100%);
+    position: relative;
+}
+
+.company-info .section-title {
+    text-align: left;
+}
+
+.company-info .section-title::after {
+    left: 0;
+    transform: none;
+}
+
+.company-info::before {
+    display: none;
+}
+
+.company-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-card {
+    background-color: var(--color-secondary);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all var(--transition-slow);
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.company-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.company-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-lg);
+}
+
+.company-card:hover::before {
+    opacity: 1;
+}
+
+.company-card h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    transition: color 0.4s ease;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+}
+
+.company-card:hover h3 {
+    color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
+}
+
+.company-card p {
+    color: var(--color-text-light);
+    position: relative;
+    z-index: 1;
+    line-height: 1.9;
+    font-size: 15px;
+    letter-spacing: 0.03em;
+    transition: color 0.4s ease;
+}
+
+.company-card:hover p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* ========================================
+   採用情報バナー
+   ======================================== */
+/* ========================================
+   お問い合わせセクション
+   ======================================== */
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+.footer {
+    background: var(--gradient-primary);
+    color: var(--color-secondary);
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-logo a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.footer-logo-image {
+    height: 50px;
+    width: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+.footer-logo a:hover .footer-logo-image {
+    opacity: 1;
+}
+
+.footer-address {
+    line-height: 1.9;
+    opacity: 1;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.footer-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+}
+
+.footer-section:last-child .footer-title {
+    font-size: 20px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-links a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.footer-social {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-contact-text {
+    color: var(--color-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+    opacity: 1;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+}
+
+.footer-email {
+    margin-top: var(--spacing-xs);
+}
+
+.footer-email a {
+    color: var(--color-secondary);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-email a:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.6;
+}
+
+/* ========================================
+   企業情報ページ
+   ======================================== */
+.company-page {
+    background-color: var(--color-bg-light);
+}
+
+.company-page .header {
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.company-page .header.scrolled {
+    background-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.company-page .logo-image {
+    filter: brightness(0) invert(1);
+}
+
+.company-page .nav-list a {
+    color: var(--color-secondary) !important;
+    text-shadow: none;
+}
+
+.company-page .nav-list a:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.company-page .has-dropdown > a {
+    color: var(--color-secondary) !important;
+}
+
+.company-page .has-dropdown > a:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.company-page .hamburger span {
+    background-color: var(--color-secondary);
+    box-shadow: none;
+}
+
+.company-page .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.company-page .dropdown-menu a {
+    color: var(--color-text) !important;
+}
+
+.company-page .header:not(.scrolled) .dropdown-menu a {
+    color: var(--color-text) !important;
+}
+
+.company-page .dropdown-menu a:hover {
+    background-color: rgba(42, 46, 71, 0.08);
+    color: var(--color-primary) !important;
+}
+
+.company-page .dropdown-more {
+    color: var(--color-accent) !important;
+}
+
+.company-page .dropdown-more:hover {
+    color: var(--color-accent) !important;
+}
+
+.breadcrumb {
+    background: linear-gradient(135deg, rgba(42, 46, 71, 0.05) 0%, rgba(42, 46, 71, 0.02) 100%);
+    padding: var(--spacing-xs) 0;
+    margin-top: 100px;
+    border-bottom: 1px solid rgba(42, 46, 71, 0.1);
+}
+
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-xs);
+    align-items: center;
+    font-size: 14px;
+}
+
+.breadcrumb-list li {
+    color: var(--color-text-light);
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+    content: '>';
+    margin-left: var(--spacing-xs);
+    color: var(--color-text-light);
+}
+
+.breadcrumb-list a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-list a:hover {
+    color: var(--color-accent);
+}
+
+.company-info-table {
+    background: linear-gradient(135deg, rgba(42, 46, 71, 0.02) 0%, rgba(42, 46, 71, 0.05) 100%);
+    border: 1px solid rgba(42, 46, 71, 0.12);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 100%;
+}
+
+.info-list {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--spacing-md) var(--spacing-lg);
+    align-items: start;
+}
+
+.info-list dt {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+    padding: var(--spacing-sm) 0;
+    border-bottom: none;
+    margin-top: 0;
+    grid-column: 1;
+}
+
+.info-list dd {
+    font-size: 15px;
+    color: var(--color-text);
+    line-height: 1.8;
+    letter-spacing: 0.03em;
+    padding: var(--spacing-sm) 0;
+    grid-column: 2;
+    border-bottom: 1px solid rgba(42, 46, 71, 0.1);
+}
+
+.message-content {
+    background: linear-gradient(135deg, rgba(42, 46, 71, 0.02) 0%, rgba(42, 46, 71, 0.05) 100%);
+    border: 1px solid rgba(42, 46, 71, 0.12);
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 100%;
+}
+
+.message-header {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid rgba(42, 46, 71, 0.15);
+}
+
+.message-signature {
+    text-align: right;
+}
+
+.message-name {
+    font-size: 14px;
+    color: var(--color-text-light);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.message-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
+}
+
+.message-text {
+    font-size: 16px;
+    line-height: 2.2;
+    color: var(--color-text);
+    letter-spacing: 0.03em;
+}
+
+.message-text p {
+    margin-bottom: var(--spacing-md);
+}
+
+.message-date {
+    text-align: right;
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: 0;
+}
+
+/* スクロール出現アニメーション */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 核となる言葉（ヒーロー） */
+.philosophy-hero {
+    position: relative;
+    overflow: hidden;
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    background: var(--gradient-primary);
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(42, 46, 71, 0.28);
+}
+
+.philosophy-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(99, 102, 241, 0.30) 0%, transparent 55%);
+    pointer-events: none;
+}
+
+.philosophy-hero-label {
+    position: relative;
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+}
+
+.philosophy-hero-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 44px;
+    height: 3px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+}
+
+.philosophy-hero-phrase {
+    position: relative;
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.1em;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+/* タイムライン */
+.philosophy-timeline {
+    position: relative;
+    padding-left: 48px;
+}
+
+.philosophy-timeline::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--color-accent) 0%, rgba(99, 102, 241, 0.12) 100%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-node {
+    position: absolute;
+    left: -42px;
+    top: 30px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.12);
+}
+
+/* 強化カード */
+.philosophy-card {
+    position: relative;
+    overflow: hidden;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(42, 46, 71, 0.02) 0%, rgba(42, 46, 71, 0.05) 100%);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.philosophy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.philosophy-card-num {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-family: var(--font-heading);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(42, 46, 71, 0.05);
+    pointer-events: none;
+    user-select: none;
+}
+
+.philosophy-card-heading {
+    position: relative;
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+}
+
+.philosophy-card-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 44px;
+    height: 3px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+}
+
+.philosophy-card-text {
+    position: relative;
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--color-text);
+    letter-spacing: 0.03em;
+}
+
+.philosophy-card-text strong {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* Value: 番号バッジ付き2カラム */
+.philosophy-values {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+}
+
+.philosophy-values li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+    letter-spacing: 0.03em;
+}
+
+.value-badge {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    background: var(--gradient-accent);
+    border-radius: 50%;
+}
+
+/* ========================================
+   事業紹介ページ - 事業詳細コンテンツ
+   ======================================== */
+.business-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    max-width: 100%;
+}
+
+/* 画像（アクセントフレーム付き・アスペクト比固定でサイズを統一） */
+.business-detail-media {
+    position: relative;
+}
+
+.business-detail-media::before {
+    content: '';
+    position: absolute;
+    left: -14px;
+    top: -14px;
+    width: 72px;
+    height: 72px;
+    border-top: 3px solid var(--color-accent);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 4px 0 0 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.business-detail-image {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(42, 46, 71, 0.18);
+}
+
+.business-detail-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    background-color: var(--color-bg-light);
+    transition: transform 0.5s ease;
+}
+
+.business-detail-image:hover img {
+    transform: scale(1.04);
+}
+
+.business-detail-text {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(42, 46, 71, 0.02) 0%, rgba(42, 46, 71, 0.05) 100%);
+    border-left: 4px solid var(--color-accent);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* 透かし番号 */
+.business-detail-num {
+    position: absolute;
+    top: -16px;
+    right: 10px;
+    font-family: var(--font-heading);
+    font-size: 120px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(42, 46, 71, 0.05);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* eyebrowラベル（旧サブタイトル） */
+.business-detail-eyebrow {
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: 6px;
+}
+
+.business-detail-eyebrow::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+}
+
+.business-detail-description {
+    position: relative;
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--color-text);
+    letter-spacing: 0.03em;
+    margin: 0 0 var(--spacing-md);
+}
+
+/* ピルタグ */
+.business-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* 事業タイトル直下に並べるタグ */
+.business-tags-top {
+    margin-bottom: var(--spacing-lg);
+}
+
+.business-tag {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    color: var(--color-accent-dark);
+    background: rgba(99, 102, 241, 0.10);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    padding: 6px 16px;
+    border-radius: 999px;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.business-tag:hover {
+    background: var(--gradient-accent);
+    color: var(--color-secondary);
+    border-color: transparent;
+}
+
+
+/* ========================================
+   企業情報ページ - サイドバーレイアウト
+   ======================================== */
+.company-content-section {
+    background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-bg-light) 100%);
+    padding: var(--spacing-md) 0 var(--spacing-md) 0;
+    min-height: 60vh;
+}
+
+.company-layout {
+    display: flex;
+    gap: var(--spacing-xl);
+    align-items: flex-start;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.company-sidebar {
+    flex: 0 0 280px;
+    position: sticky;
+    top: 120px;
+    background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-bg-light) 100%);
+    border-right: 2px solid rgba(42, 46, 71, 0.15);
+    padding-right: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+    border-radius: 8px;
+}
+
+.company-sidebar-nav {
+    width: 100%;
+}
+
+.company-sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.company-sidebar-list li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.company-sidebar-link {
+    display: block;
+    padding: var(--spacing-md) var(--spacing-md);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+    border-radius: 4px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.company-sidebar-link:hover {
+    color: var(--color-primary);
+    background: linear-gradient(90deg, rgba(42, 46, 71, 0.08) 0%, rgba(42, 46, 71, 0.03) 100%);
+    border-left-color: var(--color-primary);
+    transform: translateX(4px);
+}
+
+.company-sidebar-link.active {
+    color: var(--color-primary);
+    background: linear-gradient(90deg, rgba(42, 46, 71, 0.12) 0%, rgba(42, 46, 71, 0.05) 100%);
+    border-left-color: var(--color-primary);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(42, 46, 71, 0.1);
+}
+
+.sidebar-link-text {
+    display: block;
+}
+
+.company-content-area {
+    flex: 1;
+    min-width: 0;
+    max-width: 1200px;
+}
+
+.company-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+    background-color: transparent;
+    padding: 0;
+}
+
+.company-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-title {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 3px solid var(--color-primary);
+    position: relative;
+}
+
+.content-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-accent);
+}
+
+/* ========================================
+   レスポンシブ対応
+   ======================================== */
+@media (max-width: 1199px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .company-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 992px) {
+    .company-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+}
+
+/* タブレットサイズ（768px〜1024px）では横並びを維持 */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .nav-list {
+        gap: var(--spacing-xs);
+    }
+
+    .nav-list a {
+        font-size: 13px;
+    }
+
+    .header-container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .breadcrumb {
+        margin-top: 100px;
+        padding: var(--spacing-xs) 0;
+    }
+
+    .company-content-section {
+        padding: var(--spacing-md) 0 var(--spacing-md) 0;
+    }
+
+    .company-content-section .container {
+        max-width: 100%;
+        padding: 0 var(--spacing-md);
+    }
+
+    .company-layout {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+        justify-content: flex-start;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .company-sidebar {
+        flex: 0 0 240px;
+        position: sticky;
+        top: 120px;
+        width: 240px;
+        min-width: 240px;
+        border-right: 2px solid rgba(42, 46, 71, 0.15);
+        padding-right: var(--spacing-md);
+        padding-top: var(--spacing-md);
+    }
+
+    .company-content-area {
+        flex: 1;
+        min-width: 0;
+        max-width: none;
+        margin: 0;
+        text-align: left;
+    }
+
+    .company-content {
+        text-align: left;
+    }
+
+    .business-container {
+        flex-direction: row;
+    }
+
+    .business-title-section {
+        flex: 0 0 30%;
+        padding: var(--spacing-md) var(--spacing-md);
+    }
+
+    .business-title {
+        font-size: 32px;
+        white-space: normal;
+        word-break: keep-all;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    .business-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-title {
+        font-size: 56px;
+    }
+}
+
+/* スマホサイズ（767px以下）ではハンバーガーメニュー */
+@media (max-width: 767px) {
+    .header-container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .logo-image {
+        height: 48px;
+    }
+
+    .header-actions {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .breadcrumb {
+        margin-top: 100px;
+        padding: var(--spacing-sm) 0;
+    }
+
+    .company-content-section {
+        padding: var(--spacing-md) 0 var(--spacing-md) 0;
+    }
+
+    .nav {
+        position: fixed;
+        top: 100px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 100px);
+        background-color: var(--color-secondary);
+        transition: left 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .nav.active {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        padding: var(--spacing-md);
+        gap: var(--spacing-xs);
+        align-items: flex-start;
+    }
+
+    .nav-list li {
+        width: 100%;
+        border-bottom: 1px solid var(--color-border);
+        padding: var(--spacing-xs) 0;
+    }
+
+    .nav-list li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: var(--spacing-xs) 0;
+        font-size: 16px;
+        color: var(--color-text) !important;
+        text-shadow: none !important;
+    }
+
+    .header.scrolled .nav-list a {
+        color: var(--color-text) !important;
+    }
+
+    .company-page .nav-list a {
+        color: var(--color-text) !important;
+        text-shadow: none !important;
+    }
+
+    .company-page .nav-list a:hover {
+        color: var(--color-accent) !important;
+    }
+
+    .company-page .has-dropdown > a {
+        color: var(--color-text) !important;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        padding: var(--spacing-xs) 0 0 var(--spacing-md);
+        margin-left: 0;
+        margin-top: var(--spacing-xs);
+        background-color: transparent;
+    }
+
+    .dropdown-menu li {
+        padding: var(--spacing-xs) 0;
+    }
+
+    .dropdown-menu a {
+        font-size: 14px;
+        color: var(--color-text) !important;
+        opacity: 0.8;
+    }
+
+    .company-page .dropdown-menu a {
+        color: var(--color-text) !important;
+    }
+
+    .logo-image {
+        height: 48px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: left;
+        gap: var(--spacing-lg);
+        padding: 0 var(--spacing-md);
+        align-items: flex-start;
+    }
+
+    .hero-left {
+        max-width: 100%;
+        text-align: left;
+        margin-left: var(--spacing-md);
+        padding-left: var(--spacing-sm);
+    }
+
+    .hero-right {
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .hero-logo-image {
+        max-width: 250px;
+    }
+
+    .hero {
+        height: 100vh;
+        min-height: 600px;
+    }
+
+    .hero-image {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+    }
+
+    .hero-title {
+        font-size: 20px;
+        letter-spacing: 0.06em;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+        letter-spacing: 0.06em;
+        text-align: left;
+        margin-bottom: 0;
+    }
+
+    .section-title {
+        font-size: 40px;
+        letter-spacing: 0.06em;
+    }
+
+    .business-card-title {
+        font-size: 48px;
+    }
+
+    .lifecycle-diagram {
+        flex-direction: column;
+    }
+
+    .lifecycle-arrow {
+        transform: rotate(90deg);
+    }
+
+    .business {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .business-container {
+        flex-direction: column;
+    }
+
+    .business-title-section {
+        flex: 0 0 auto;
+        padding: var(--spacing-md) var(--spacing-md);
+        order: 1;
+    }
+
+    .business-cards-grid {
+        order: 2;
+    }
+
+    .business-title {
+        font-size: 40px;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-break: keep-all;
+    }
+
+    .business-intro-text {
+        font-size: 16px;
+    }
+
+    .business-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .business-card-item {
+        height: 280px;
+        border-right: none;
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .business-card-item:first-child {
+        border-top: none;
+    }
+
+    .business-card-info {
+        padding: var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
+    }
+
+    .business-card-item:hover .business-card-image {
+        filter: brightness(0.3);
+    }
+
+    .business-card-overlay {
+        background: linear-gradient(180deg, rgba(42, 46, 71, 0.2) 0%, rgba(42, 46, 71, 0.6) 50%, rgba(42, 46, 71, 0.9) 100%);
+    }
+
+    .business-card-item:hover .business-card-overlay {
+        background: linear-gradient(180deg, rgba(42, 46, 71, 0.4) 0%, rgba(42, 46, 71, 0.8) 50%, rgba(42, 46, 71, 0.98) 100%);
+    }
+
+    .business-card-title {
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+
+    .business-card-subtitle {
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    .business-card-hover-content {
+        opacity: 0;
+        margin-bottom: auto;
+        padding-bottom: var(--spacing-xs);
+    }
+
+    .business-card-item:hover .business-card-hover-content {
+        opacity: 1;
+    }
+
+    .business-card-features {
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+    }
+
+    .business-card-feature-item {
+        width: auto;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .company-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons a {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .page-title {
+        font-size: 40px;
+    }
+
+    .page-subtitle {
+        font-size: 16px;
+    }
+
+    .company-menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-hero {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .philosophy-timeline {
+        padding-left: 32px;
+    }
+
+    .philosophy-timeline::before {
+        left: 8px;
+    }
+
+    .timeline-node {
+        left: -30px;
+        top: 26px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .philosophy-card {
+        padding: var(--spacing-md) var(--spacing-md);
+    }
+
+    .philosophy-card-heading {
+        font-size: 26px;
+    }
+
+    .philosophy-card-num {
+        font-size: 40px;
+    }
+
+    .philosophy-values {
+        grid-template-columns: 1fr;
+    }
+
+    .message-content,
+    .company-info-table {
+        padding: var(--spacing-md);
+    }
+
+    /* ラベルと本文を縦積みにして本文を全幅に */
+    .info-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .info-list dt {
+        grid-column: 1;
+        padding: var(--spacing-sm) 0 4px;
+    }
+
+    .info-list dd {
+        grid-column: 1;
+        padding: 0 0 var(--spacing-sm);
+    }
+
+    .company-layout {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+
+    .company-sidebar {
+        flex: 0 0 auto;
+        position: static;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        padding-right: 0;
+        padding-bottom: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .company-sidebar-list {
+        display: flex;
+        gap: var(--spacing-xs);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .company-sidebar-list li {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .company-sidebar-link {
+        white-space: nowrap;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .company-sidebar-link.active {
+        border-left: none;
+        border-bottom-color: var(--color-accent);
+    }
+
+    .content-title {
+        font-size: 28px;
+    }
+
+    .business-detail-media::before {
+        left: -8px;
+        top: -8px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .business-detail-num {
+        font-size: 88px;
+    }
+}

@@ -1,8 +1,6 @@
 # Empire Art robots.txt
-# Allow all web crawlers access to all content
 
 User-agent: *
 Allow: /
 
-# Sitemap location
 Sitemap: https://empire-art.vercel.app/sitemap.xml
