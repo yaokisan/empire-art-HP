@@ -45,8 +45,10 @@ members.html の `.cast` ブロック(モニター1台分)を複製し、
 
 ```bash
 cd このフォルダ
-python3 -m http.server 8790
-# → http://localhost:8790 を開く
+npx serve .
+# → 表示されたURLを開く
+# ※ 本番はクリーンURL(/business 等)。python3 -m http.server は
+#    拡張子なしURLに対応しないため、ローカル確認は serve を使うこと
 ```
 
 ## どこを触れば何が変わるか
