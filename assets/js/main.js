@@ -1,147 +1,77 @@
-// ========================================
-// メインスクリプト
-// ========================================
+/* main.js — スターター基盤
+   構成: reveal / ヘッダー状態 / ハンバーガー / モーション停止
+   (お問い合わせはmailto運用のためフォーム検証は未使用。GSAP系の演出は motion.js) */
 
-// DOM読み込み完了後に実行
-document.addEventListener('DOMContentLoaded', function() {
-    initHeader();
-    initServicesDropdown();
-    initBusinessSection();
+document.addEventListener("DOMContentLoaded", () => {
+  initReveal();
+  initHeader();
+  initNav();
+  initMotionStop();
 });
 
-// ========================================
-// ヘッダー機能
-// ========================================
+/* ---- スクロールリビール(.js-reveal に .is-inview を付与) ---- */
+function initReveal() {
+  const targets = document.querySelectorAll(".js-reveal");
+  if (!targets.length) return;
+  if (!("IntersectionObserver" in window) || document.documentElement.classList.contains("is-motion-off")) {
+    targets.forEach((el) => el.classList.add("is-inview"));
+    return;
+  }
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-inview");
+          io.unobserve(e.target); // 一度きり。繰り返すならこの行を消す
+        }
+      });
+    },
+    { rootMargin: "0px 0px -12% 0px" }
+  );
+  targets.forEach((el) => io.observe(el));
+}
+
+/* ---- ヘッダー: スクロールで背景を付ける ---- */
 function initHeader() {
-    const header = document.getElementById('header');
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
-
-    // スクロール時のヘッダー背景変更
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // ハンバーガーメニューの開閉
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    }
-
-    // メニュー外クリックで閉じる
-    document.addEventListener('click', function(e) {
-        if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-            nav.classList.remove('active');
-            hamburger.classList.remove('active');
-        }
-    });
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 40);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 }
 
-// ========================================
-// ナビ：事業紹介ドロップダウン
-// ========================================
-function initServicesDropdown() {
-    const dropdown = document.getElementById('servicesDropdown');
-    if (!dropdown) return;
-
-    fetch('assets/data/business.json')
-        .then(response => response.json())
-        .then(data => {
-            dropdown.innerHTML = data.map(business =>
-                `<li><a href="business.html#${business.id}">${business.title}</a></li>`
-            ).join('');
-        })
-        .catch(error => {
-            console.error('事業データの読み込みに失敗しました:', error);
-        });
+/* ---- ハンバーガー(aria-expanded連動。a11y構造は削除禁止) ---- */
+function initNav() {
+  const btn = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".global-nav");
+  if (!btn || !nav) return;
+  btn.addEventListener("click", () => {
+    const open = nav.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  nav.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    })
+  );
 }
 
-// ========================================
-// 事業紹介セクション
-// ========================================
-function initBusinessSection() {
-    const businessGrid = document.getElementById('businessGrid');
-    if (!businessGrid) return;
-
-    // 事業データを読み込む
-    fetch('assets/data/business.json')
-        .then(response => response.json())
-        .then(data => {
-            displayBusinessCards(data);
-        })
-        .catch(error => {
-            console.error('事業データの読み込みに失敗しました:', error);
-            // エラー時はデフォルトデータを表示
-            displayBusinessCards(getDefaultBusinessData());
-        });
-}
-
-function displayBusinessCards(businesses) {
-    const businessGrid = document.getElementById('businessGrid');
-    if (!businessGrid) return;
-
-    businessGrid.innerHTML = businesses.map((business, index) => {
-        const featuresHtml = business.features ? business.features.map(feature => `<div class="business-card-feature-item">${feature}</div>`).join('') : '';
-        return `
-        <a href="business.html#${business.id}" class="business-card-item">
-            <div class="business-card-image" style="background-image: url('${business.image || 'assets/images/business/default.jpg'}');"></div>
-            <div class="business-card-overlay"></div>
-            <div class="business-card-info">
-                <div class="business-card-hover-content">
-                    <p class="business-card-description">${business.description || ''}</p>
-                    ${featuresHtml ? `<div class="business-card-features">${featuresHtml}</div>` : ''}
-                </div>
-                <div class="business-card-default-content">
-                    <h3 class="business-card-title">${business.title}</h3>
-                </div>
-            </div>
-        </a>
-    `;
-    }).join('');
-}
-
-function getDefaultBusinessData() {
-    return [
-        {
-            id: 'service01',
-            title: '事業01',
-            subtitle: 'キャッチコピー',
-            description: '事業01の説明がここに入ります。',
-            image: 'assets/images/business/service01.jpg'
-        },
-        {
-            id: 'service02',
-            title: '事業02',
-            subtitle: 'キャッチコピー',
-            description: '事業02の説明がここに入ります。',
-            image: 'assets/images/business/service02.jpg'
-        },
-        {
-            id: 'service03',
-            title: '事業03',
-            subtitle: 'キャッチコピー',
-            description: '事業03の説明がここに入ります。',
-            image: 'assets/images/business/service03.jpg'
-        },
-        {
-            id: 'service04',
-            title: '事業04',
-            subtitle: 'キャッチコピー',
-            description: '事業04の説明がここに入ります。',
-            image: 'assets/images/business/service04.jpg'
-        },
-        {
-            id: 'service05',
-            title: '事業05',
-            subtitle: 'キャッチコピー',
-            description: '事業05の説明がここに入ります。',
-            image: 'assets/images/business/service05.jpg'
-        }
-    ];
+/* ---- モーション停止(SKILL.mdのポリシー実装。削除禁止) ----
+   reduced-motion環境にのみボタンが表示され(CSS側)、押した場合だけ
+   sessionStorage+リロードで完全に静的なページとして開き直す(pitfalls.md準拠)。
+   初期クラス付与は各HTML headのインラインスニペットが行う */
+function initMotionStop() {
+  const btn = document.querySelector(".motion-stop");
+  if (!btn) return;
+  let off = false;
+  try { off = sessionStorage.getItem("ea-motion") === "off"; } catch (e) {}
+  if (off) btn.textContent = "アニメーションを再生する";
+  btn.addEventListener("click", () => {
+    try { sessionStorage.setItem("ea-motion", off ? "on" : "off"); } catch (e) {}
+    location.reload();
+  });
 }

@@ -1,159 +1,299 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="企業の事業内容・実績を明確に伝えるコーポレートサイト">
-    <title>株式会社Empire Art | Top Page</title>
-    <link rel="stylesheet" href="assets/css/style.css?v=20260610-5">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Empire Art 株式会社 | Top Page</title>
+  <meta name="description" content="企業の事業内容・実績を明確に伝えるコーポレートサイト">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Empire Art 株式会社 | Top Page">
+  <meta property="og:description" content="企業の事業内容・実績を明確に伝えるコーポレートサイト">
+  <meta property="og:url" content="https://empire-art.jp/">
+  <meta property="og:image" content="https://empire-art.jp/assets/img/common/ogp.png">
+  <meta property="og:site_name" content="Empire Art 株式会社">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="google-site-verification" content="DiJruQ56RrKV0pojmZcEBf4RLF2raJs7DiAOiIQ7bW0" />
+  <link rel="canonical" href="https://empire-art.jp/">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="assets/img/common/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Zen+Old+Mincho:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>try{if(sessionStorage.getItem("ea-motion")==="off")document.documentElement.classList.add("is-motion-off")}catch(e){}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Empire Art 株式会社",
+    "url": "https://empire-art.jp/",
+    "logo": "https://empire-art.jp/assets/img/common/logo.png",
+    "email": "info@empire-art.jp",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "163-1302",
+      "addressRegion": "東京都",
+      "addressLocality": "新宿区",
+      "streetAddress": "西新宿6-5-1 新宿アイランドタワー2F"
+    }
+  }
+  </script>
 </head>
-<body>
-    <!-- ヘッダー -->
-    <header class="header" id="header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="/">
-                    <img src="assets/images/company/empireart_logo_plane.png" alt="Empire Art Logo" class="logo-image">
-                </a>
-            </div>
-            <nav class="nav" id="nav">
-                <ul class="nav-list">
-                    <li class="has-dropdown">
-                        <a href="business.html">Services<br>事業紹介</a>
-                        <ul class="dropdown-menu" id="servicesDropdown">
-                        </ul>
-                    </li>
-                    <li class="has-dropdown">
-                        <a href="company.html">Company<br>企業情報</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="company.html#overview">会社概要</a></li>
-                            <li><a href="company.html#message">代表メッセージ</a></li>
-                            <li><a href="company.html#vision">Our Philosophy</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#footer">Contact<br>お問い合わせ</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="hamburger" id="hamburger" aria-label="メニュー">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+<body class="p-home">
+
+  <!-- ローディング(放送開始前 → ON AIR) -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__bars"></div>
+    <p class="loader__head">EMPIRE ART INC.</p>
+    <p class="loader__tc" data-tc>TC 00:00:00:00</p>
+    <p class="loader__signal" data-loader-signal>SIGNAL 000</p>
+    <p class="loader__tally"><span class="tally-lamp"></span>REC</p>
+  </div>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="site-header__logo" href="index.html">
+      <img src="assets/img/common/logo.png" alt="Empire Art 株式会社" width="480" height="248">
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-label="メニューを開く" aria-controls="global-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+      <ul>
+        <li><a href="business.html">Services<span class="ja">事業紹介</span></a></li>
+        <li><a href="company.html">Company<span class="ja">企業情報</span></a></li>
+        <li><a href="members.html">Members<span class="ja">メンバー</span></a></li>
+        <li><a href="#contact">Contact<span class="ja">お問い合わせ</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 第一幕: ヒーロー(白いスタジオ) -->
+    <section class="hero">
+      <span class="hero__sidebar" aria-hidden="true"></span>
+      <div class="container">
+        <p class="hero__meta">
+          <span class="mono-label"><span class="tally-dot"></span>ON AIR</span>
+          <span class="mono-label">EMPIRE ART INC. — TOKYO</span>
+          <span class="hero__tc" data-tc aria-hidden="true">TC 00:00:00:00</span>
+        </p>
+        <h1 class="hero__title">
+          <span class="line"><span class="line-inner">アートがビジネスを</span></span>
+          <span class="line"><span class="line-inner">超越する世界へ</span></span>
+        </h1>
+        <p class="hero__est">EST. 2024</p>
+      </div>
+      <p class="hero__scroll" aria-hidden="true">SCROLL</p>
+    </section>
+
+    <!-- 第二幕: Vision(前回HPの明朝×文字点灯×藍マーカーを移植) -->
+    <section class="vision" id="vision">
+      <div class="vision__sticky">
+        <p class="vision__label">Vision</p>
+        <h2 class="vision__phrase">「<span class="marker">究極の組織を完成させる</span>」</h2>
+        <p class="vision__text" data-illuminate>我々の究極のゴールは、<br>メンバー1人ひとりが自らのアイデンティティ（哲学）を殺すことなく、<br>最高の自分として輝きながら、<br>異次元の成果へと直結する<br>「究極の組織」という名の作品を完成させることです。</p>
+      </div>
+    </section>
+
+    <!-- 第三幕: 番組表(ザッピング・最大の見せ場) -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head js-reveal">
+          <span class="mono-label"><span class="tally-dot"></span>Services — Program Guide</span>
+          <h2 class="section-head__title">作品 - Services</h2>
+          <span class="section-head__bar" aria-hidden="true"></span>
         </div>
-    </header>
 
-    <!-- メインコンテンツ -->
-    <main>
-        <!-- ヒーローセクション -->
-        <section class="hero" id="hero">
-            <div class="hero-image" style="background-image: url('assets/images/hero/1.jpg');"></div>
-            <div class="hero-content">
-                <div class="hero-left">
-                    <h1 class="hero-title" id="heroTitle"></h1>
-                    <h1 class="hero-subtitle" id="heroSubtitle"></h1>
-                </div>
+        <div class="zapper js-reveal" data-delay="2">
+          <div class="zap-list" role="tablist" aria-label="事業チャンネル">
+            <div class="zap-track">
+            <button class="zap-ch is-live" type="button" role="tab" aria-selected="true" data-zap="0">
+              <span class="no">CH.01</span>自社メディア事業<span class="lamp" aria-hidden="true"></span>
+            </button>
+            <button class="zap-ch" type="button" role="tab" aria-selected="false" data-zap="1">
+              <span class="no">CH.02</span>マーケティング・<wbr>プロデュース事業<span class="lamp" aria-hidden="true"></span>
+            </button>
+            <button class="zap-ch" type="button" role="tab" aria-selected="false" data-zap="2">
+              <span class="no">CH.03</span>自社ブランド事業<span class="lamp" aria-hidden="true"></span>
+            </button>
+            <button class="zap-ch" type="button" role="tab" aria-selected="false" data-zap="3">
+              <span class="no">CH.04</span>コーチング事業<span class="lamp" aria-hidden="true"></span>
+            </button>
             </div>
-        </section>
+          </div>
 
-        <!-- 企業コンセプトセクション -->
-        <section class="concept" id="concept">
-            <div class="container">
-                <div class="concept-content">
-                    <div class="concept-left">
-                        <h2 class="section-title">Vision</h2>
-                        <p class="concept-text">
-                            <br><span class="concept-highlight">「究極の組織を完成させる」</span><br><br>
-                            我々の究極のゴールは、メンバー1人ひとりが自らのアイデンティティ（哲学）を殺すことなく、最高の自分として輝きながら、異次元の成果へと直結する「究極の組織」という名の作品を完成させることです。<br>
-                        </p>
-                    </div>
-                    <div class="concept-right">
-                        <div class="concept-image-wrapper">
-                            <img src="assets/images/concept/11.jpg" alt="Vision" class="concept-image concept-image-bg">
-                        </div>
-                    </div>
-                </div>
+          <div class="monitor">
+            <div class="monitor__hud">
+              <span class="rec">REC</span>
+              <span data-tc>TC 00:00:00:00</span>
             </div>
-        </section>
-
-        <!-- 事業紹介セクション -->
-        <section class="business" id="business">
-            <div class="business-container">
-                <div class="business-title-section">
-                    <h2 class="business-title">作品 - Services</h2>
-                    <p class="business-intro-text">Empire Artはビジネスをビジネスにとどめず、「作品」として昇華させています。</p>
-                    <a href="business.html" class="business-more-link">→ More</a>
-                </div>
-                <div class="business-cards-grid" id="businessGrid">
-                    <!-- JavaScriptで動的に生成 -->
-                </div>
+            <div class="monitor__screen" data-zap-screen>
+              <div class="zap-panel is-live" data-zap-panel="0">
+                <img src="assets/img/business/service01.webp" alt="自社メディア事業" width="1440" height="856">
+                <span class="zap-panel__ch" aria-hidden="true">CH.01</span>
+              </div>
+              <div class="zap-panel" data-zap-panel="1">
+                <img src="assets/img/business/service02.webp" alt="マーケティング・プロデュース事業" width="1440" height="810" loading="lazy">
+                <span class="zap-panel__ch" aria-hidden="true">CH.02</span>
+              </div>
+              <div class="zap-panel" data-zap-panel="2">
+                <img src="assets/img/business/service03.webp" alt="自社ブランド事業" width="1500" height="2250" loading="lazy">
+                <span class="zap-panel__ch" aria-hidden="true">CH.03</span>
+              </div>
+              <div class="zap-panel" data-zap-panel="3">
+                <img src="assets/img/business/service04.webp" alt="コーチング事業" width="1440" height="810" loading="lazy">
+                <span class="zap-panel__ch" aria-hidden="true">CH.04</span>
+              </div>
+              <span class="monitor__flash" aria-hidden="true"></span>
             </div>
-        </section>
-
-        <!-- 企業情報セクション -->
-        <section class="company-info">
-            <div class="container">
-                <h2 class="section-title">企業情報</h2>
-                <div class="company-cards">
-                    <a href="company.html#overview" class="company-card">
-                        <h3>会社概要</h3>
-                        <p>Empire Art株式会社の基本情報、事業内容、所在地などの企業情報をご紹介いたします。</p>
-                    </a>
-                    <a href="company.html#message" class="company-card">
-                        <h3>代表メッセージ</h3>
-                        <p>代表取締役 小林弥起からのメッセージ。Empire Artの想いと未来への展望をお伝えします。</p>
-                    </a>
-                    <a href="company.html#vision" class="company-card">
-                        <h3>Our Philosophy</h3>
-                        <p>Empire Artが大切にする価値観である理念、ミッション、ビジョン、バリューをご紹介します。</p>
-                    </a>
+            <div class="monitor__info">
+              <div class="zap-info is-live" data-zap-info="0">
+                <h3>自社メディア事業</h3>
+                <p>　日本のコンテンツマーケティング黎明期より取り組んだ10年以上の経験と専門性をもとに、マーケティンク、クリエイティブ、ストーリーテリングで、圧倒的な差をつける番組の企画・制作・運営を行います。</p>
+                <div class="zap-info__tags">
+                  <span class="tag">メディア運営</span><span class="tag">YouTube番組</span><span class="tag">デジタルマーケティング</span>
                 </div>
+                <a class="zap-info__link" href="business.html#service01" data-cursor="view">VIEW PROGRAM →</a>
+              </div>
+              <div class="zap-info" data-zap-info="1">
+                <h3>マーケティング・プロデュース事業</h3>
+                <p>　届けたい人に、届く仕組みを。ターゲットの心をつかむクリエイティブと運用力で、事業成長を最大化します。</p>
+                <div class="zap-info__tags">
+                  <span class="tag">クリエイティブ</span><span class="tag">マーケティング</span><span class="tag">広告運用</span>
+                </div>
+                <a class="zap-info__link" href="business.html#service02" data-cursor="view">VIEW PROGRAM →</a>
+              </div>
+              <div class="zap-info" data-zap-info="2">
+                <h3>自社ブランド事業</h3>
+                <p>　誰かを想い、モノを選んで、言葉を添えて、分かち合う。贈る人と受け取る人の間に、あたたかな記憶が灯るプロダクトと体験をお届けします。</p>
+                <div class="zap-info__tags">
+                  <span class="tag">ギフトブランド</span><span class="tag">D2C</span><span class="tag">EC</span>
+                </div>
+                <a class="zap-info__link" href="business.html#service03" data-cursor="view">VIEW PROGRAM →</a>
+              </div>
+              <div class="zap-info" data-zap-info="3">
+                <h3>コーチング事業</h3>
+                <p>　「努力で到達不能な、Top1%側の人間」に強制シフトさせる、コーチングプログラムを実施しています。</p>
+                <div class="zap-info__tags">
+                  <span class="tag">コーチング</span><span class="tag">ゴール設定</span><span class="tag">能力開発</span>
+                </div>
+                <a class="zap-info__link" href="business.html#service04" data-cursor="view">VIEW PROGRAM →</a>
+              </div>
             </div>
-        </section>
-
-    </main>
-
-    <!-- フッター -->
-    <footer class="footer" id="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <a href="index.html">
-                            <img src="assets/images/company/empireart_logo_plane.png" alt="Empire Art Logo" class="footer-logo-image">
-                        </a>
-                    </div>
-                    <p class="footer-address">
-                        〒163-1302<br>
-                        東京都新宿区西新宿6-5-1<br>新宿アイランドタワー2F<br>
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h3 class="footer-title">サイトマップ</h3>
-                    <ul class="footer-links">
-                        <li><a href="business.html">事業紹介</a></li>
-                        <li><a href="company.html">企業情報</a></li>
-                        <li><a href="#footer">お問い合わせ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <div class="footer-contact">
-                        <h3 class="footer-title">お問い合わせ</h3>
-                        <p class="footer-contact-text">ご相談・お問い合わせはお気軽にご連絡ください</p>
-                        <p class="footer-email">
-                            <a href="mailto:info@empire-art.jp">info@empire-art.jp</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Empire Art Inc. All rights reserved.</p>
-            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/typewriter.js"></script>
+    <!-- 第四幕: 企業情報(スタジオ案内) -->
+    <section class="section" id="company">
+      <div class="container">
+        <div class="section-head js-reveal">
+          <span class="mono-label"><span class="tally-dot"></span>Company — Studio Guide</span>
+          <h2 class="section-head__title">企業情報</h2>
+          <span class="section-head__bar" aria-hidden="true"></span>
+        </div>
+        <ul class="guide-list">
+          <li class="js-reveal">
+            <a href="company.html#overview">
+              <span class="guide-list__no">INFO.01</span>
+              <span class="guide-list__body">
+                <h3>会社概要</h3>
+                <p>Empire Art 株式会社の基本情報、事業内容、所在地などの企業情報をご紹介いたします。</p>
+              </span>
+              <span class="guide-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="js-reveal" data-delay="1">
+            <a href="company.html#message">
+              <span class="guide-list__no">INFO.02</span>
+              <span class="guide-list__body">
+                <h3>代表メッセージ</h3>
+                <p>代表取締役 小林弥起からのメッセージ。Empire Artの想いと未来への展望をお伝えします。</p>
+              </span>
+              <span class="guide-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="js-reveal" data-delay="2">
+            <a href="company.html#vision">
+              <span class="guide-list__no">INFO.03</span>
+              <span class="guide-list__body">
+                <h3>Our Philosophy</h3>
+                <p>Empire Artが大切にする価値観である理念、ミッション、ビジョンをご紹介します。</p>
+              </span>
+              <span class="guide-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="js-reveal" data-delay="3">
+            <a href="members.html">
+              <span class="guide-list__no">INFO.04</span>
+              <span class="guide-list__body">
+                <h3>メンバー</h3>
+                <p>Empire Artのコアメンバーとパートナーをご紹介します。</p>
+              </span>
+              <span class="guide-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 終幕: CTA -->
+    <section class="cta-band" id="contact">
+      <div class="container cta-band__inner">
+        <span class="mono-label js-reveal"><span class="tally-dot"></span>Contact</span>
+        <h2 class="cta-band__title js-reveal" data-delay="1">お問い合わせ</h2>
+        <p class="cta-band__text js-reveal" data-delay="2">ご相談・お問い合わせはお気軽にご連絡ください</p>
+        <a class="button js-reveal" data-delay="3" href="mailto:info@empire-art.jp" data-cursor="view">メールで問い合わせる</a>
+        <span class="cta-band__mail">info@empire-art.jp</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="site-footer__logo" href="index.html">
+            <img src="assets/img/common/logo.png" alt="Empire Art 株式会社" width="480" height="248">
+          </a>
+          <address class="site-footer__address">
+            〒163-1302<br>
+            東京都新宿区西新宿6-5-1<br>新宿アイランドタワー2F
+          </address>
+        </div>
+        <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+          <h3>Site Map</h3>
+          <ul>
+            <li><a href="business.html"><span class="en">Services</span><span class="ja">事業紹介</span></a></li>
+            <li><a href="company.html"><span class="en">Company</span><span class="ja">企業情報</span></a></li>
+            <li><a href="members.html"><span class="en">Members</span><span class="ja">メンバー</span></a></li>
+            <li><a href="#contact"><span class="en">Contact</span><span class="ja">お問い合わせ</span></a></li>
+          </ul>
+        </nav>
+        <div class="site-footer__contact">
+          <h3>Contact</h3>
+          <p>ご相談・お問い合わせはお気軽にご連絡ください</p>
+          <a class="site-footer__mail" href="mailto:info@empire-art.jp" data-cursor="view">info@empire-art.jp</a>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p><small>&copy; 2024 Empire Art Inc. All rights reserved.</small></p>
+        <a class="site-footer__top" href="#top">Back to Top<span class="arrow" aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+    <span class="site-footer__wordmark" aria-hidden="true">EMPIRE ART</span>
+    <span class="bars-strip" aria-hidden="true"></span>
+  </footer>
+
+  <button class="motion-stop">アニメーションを停止する</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+  <script src="assets/js/studio.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

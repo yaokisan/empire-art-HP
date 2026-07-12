@@ -1,6 +1,3 @@
-# Empire Art robots.txt
-
 User-agent: *
 Allow: /
-
-Sitemap: https://empire-art.vercel.app/sitemap.xml
+Sitemap: https://empire-art.jp/sitemap.xml

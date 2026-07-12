@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#efe8dd"/>
+  <rect width="800" height="740" fill="#f7f7f5"/>
+  <text x="400" y="330" text-anchor="middle" font-family="Menlo, monospace" font-size="26" letter-spacing="6" fill="#716d66">PARTNER.03</text>
+  <text x="400" y="410" text-anchor="middle" font-family="'Hiragino Kaku Gothic ProN', sans-serif" font-size="44" font-weight="bold" fill="#1a1a1e">武藤 絢人</text>
+  <text x="400" y="470" text-anchor="middle" font-family="Menlo, monospace" font-size="18" letter-spacing="4" fill="#716d66">PHOTO COMING SOON</text>
+  <rect x="0.00" y="740" width="114.29" height="60" fill="#d9d9d5"/><rect x="114.29" y="740" width="114.29" height="60" fill="#e0c000"/><rect x="228.57" y="740" width="114.29" height="60" fill="#00b8be"/><rect x="342.86" y="740" width="114.29" height="60" fill="#00a638"/><rect x="457.14" y="740" width="114.29" height="60" fill="#bf27a8"/><rect x="571.43" y="740" width="114.29" height="60" fill="#d21c1c"/><rect x="685.71" y="740" width="114.29" height="60" fill="#2038c0"/>
+</svg>
