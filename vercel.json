@@ -3,6 +3,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "empire-art.vercel.app" }],
+      "destination": "https://empire-art.jp/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "empire-art.vercel.app" }],
       "destination": "https://empire-art.jp/:path*",
