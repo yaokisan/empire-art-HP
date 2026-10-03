@@ -868,13 +868,17 @@ body.is-onair .hero__scroll { opacity: 1; }
   .program--rev .program__media { order: 2; }
 }
 
-/* 事業紹介: 研修プログラム(受講案内) */
-.course__body { display: grid; gap: calc(var(--space) * 10); margin-top: calc(var(--space) * 10); }
-.course__subtitle {
-  display: grid; gap: 10px; justify-items: start;
-  font-size: clamp(20px, 2.4vw, 26px); font-weight: 900;
-  margin-bottom: calc(var(--space) * 4);
+/* 事業紹介: 詳細ページへのリンク */
+.program__link {
+  display: inline-block; margin-top: calc(var(--space) * 2);
+  font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: 0.16em;
+  color: var(--color-text); text-decoration: none;
+  padding-bottom: 5px;
+  background: var(--colorbar) no-repeat left bottom / 100% 3px;
 }
+.program__link:hover { opacity: 1; color: var(--color-red); }
+
+/* 研修詳細: 研修内容(ステップ一覧) */
 .course__steps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line); }
 .course__steps li {
   display: grid; grid-template-columns: 48px 1fr; gap: 16px;
