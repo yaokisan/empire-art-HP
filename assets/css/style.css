@@ -511,6 +511,28 @@ body.is-onair .hero__scroll { opacity: 1; }
 }
 .zap-panel.is-live { opacity: 1; visibility: visible; }
 .zap-panel img { width: 100%; height: 100%; object-fit: cover; }
+/* 写真のないCH: カラーバーのタイトルカード */
+.title-card {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  background:
+    linear-gradient(180deg, transparent 0 70%, var(--color-ink) 70% 100%),
+    var(--colorbar);
+}
+.title-card__label {
+  display: grid; gap: 6px; justify-items: center;
+  padding: clamp(10px, 1.6vw, 18px) clamp(18px, 3vw, 34px);
+  background: var(--color-ink);
+  font-family: var(--font-mono); font-weight: 600;
+  font-size: clamp(16px, 2.2vw, 26px); letter-spacing: 0.18em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.title-card__label small {
+  font-family: var(--font-head); font-weight: 700;
+  font-size: 0.5em; letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.7);
+}
 .zap-panel__ch {
   position: absolute; top: 12px; left: 14px;
   font-family: var(--font-mono); font-weight: 600;
@@ -845,6 +867,29 @@ body.is-onair .hero__scroll { opacity: 1; }
   .program--rev .program__inner { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
   .program--rev .program__media { order: 2; }
 }
+
+/* 事業紹介: 研修プログラム(受講案内) */
+.course__body { display: grid; gap: calc(var(--space) * 10); margin-top: calc(var(--space) * 10); }
+.course__subtitle {
+  display: grid; gap: 10px; justify-items: start;
+  font-size: clamp(20px, 2.4vw, 26px); font-weight: 900;
+  margin-bottom: calc(var(--space) * 4);
+}
+.course__steps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line); }
+.course__steps li {
+  display: grid; grid-template-columns: 48px 1fr; gap: 16px;
+  padding: clamp(16px, 2.4vw, 24px) 8px;
+  border-bottom: 1px solid var(--color-line);
+}
+.course__no {
+  font-family: var(--font-mono); font-weight: 600;
+  font-size: 13px; letter-spacing: 0.18em;
+  color: var(--color-red);
+  padding-top: 3px;
+}
+.course__steps h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.course__steps p { color: var(--color-muted); font-size: 14px; line-height: 1.9; margin: 0; }
+.course__note { margin-top: calc(var(--space) * 4); font-size: 13px; color: var(--color-muted); }
 
 /* 企業情報: スペック表 */
 .info-table { border-top: 1px solid var(--color-line); }
